@@ -16,13 +16,14 @@ public:
 	void Spawn();
 	void Trace();
 
+
 private:
 	Transform* transform;
 	SurvivalPlayer* player = nullptr;
 
-	float moveSpeed = 1.0f;
+	float moveSpeed = 5.0f;
 	Vector3 velocity;
-	float curHp;
+	float curHp = 10;
 	float maxHp;
 	
 };

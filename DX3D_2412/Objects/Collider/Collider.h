@@ -60,7 +60,7 @@ public:
 
 public:
     static void OnDraw() { isDraw = !isDraw; }
-
+    
 protected:
     Type type;
     

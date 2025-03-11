@@ -3,7 +3,7 @@
 class Bullet : public SphereCollider
 {
 private:
-	const float LIFE_TIME = 3.0f;
+	const float LIFE_TIME = 10.0f;
 
 public:
 	Bullet(Transform* transform);
@@ -15,8 +15,11 @@ public:
 
 	void Fire(Vector3 pos, Vector3 dir);
 
+	void IsCollisionWithEnemy(Collider* collider);
+
 private:
 	Transform* transform;
+	Collider* collider;
 
 	float speed = 5.0f;
 	Vector3 velocity;

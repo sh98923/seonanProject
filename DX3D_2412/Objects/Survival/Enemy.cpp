@@ -15,8 +15,8 @@ Enemy::~Enemy()
 
 void Enemy::Update()
 {
-	Spawn();
 	Trace();
+	
 	UpdateWorld();
 }
 
@@ -40,8 +40,10 @@ void Enemy::Trace()
 {
 	if (IsActive())
 	{
-		Vector3 dir = player->GetLocalPosition() - GetLocalPosition();
+		Vector3 dir = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
 		Translate(dir * moveSpeed * DELTA);
 	}
 }
+
+
 
