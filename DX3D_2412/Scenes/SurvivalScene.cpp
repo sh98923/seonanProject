@@ -41,6 +41,8 @@ void SurvivalScene::Render()
 void SurvivalScene::PostRender()
 {
 	player->PostRender();
+	string Hp = "HP : " + to_string(player->curHp);
+	Font::Get()->RenderText(Hp, { 80, SCREEN_HEIGHT - 40 });
 }
 
 void SurvivalScene::GUIRender()

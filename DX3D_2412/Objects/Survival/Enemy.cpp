@@ -16,7 +16,7 @@ Enemy::~Enemy()
 void Enemy::Update()
 {
 	Trace();
-	
+	BulletManager::Get()->IsCollisionWithEnemy(this);
 	UpdateWorld();
 }
 
@@ -33,7 +33,7 @@ void Enemy::Render()
 void Enemy::Spawn()
 {
 	isActive = true;
-	SetLocalPosition(GameMath::Random(Vector3(-25.0f, 1.0f, -25.0f), Vector3(25.0f, 1.0f, 25.0f)));
+	SetLocalPosition(GameMath::Random(Vector3(-20.0f, 1.0f, -20.0f), Vector3(20.0f, 1.0f, 20.0f)));
 }
 
 void Enemy::Trace()

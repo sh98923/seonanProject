@@ -14,6 +14,7 @@ public:
 
 private:
 	Enemy* enemy;
+	Bullet* bullet;
 	SurvivalPlayer* player;
 
 	Plane* plane;
