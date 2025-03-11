@@ -18,6 +18,7 @@ public:
 
 	void Fire(Vector3 pos, Vector3 direction);
 
+	void IsCollisionWithEnemy(Collider* collider);
 
 private:
 	ModelInstancing* modelInstancing;

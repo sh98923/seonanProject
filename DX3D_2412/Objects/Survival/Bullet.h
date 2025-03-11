@@ -15,8 +15,6 @@ public:
 
 	void Fire(Vector3 pos, Vector3 dir);
 
-	void IsCollisionWithEnemy(Collider* collider);
-
 private:
 	Transform* transform;
 	Collider* collider;

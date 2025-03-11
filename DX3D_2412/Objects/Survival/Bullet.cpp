@@ -23,7 +23,6 @@ void Bullet::Update()
 		SetActive(false);
 
 	Translate(velocity * speed * DELTA);
-	IsCollisionWithEnemy(collider);
 	UpdateWorld();	
 }
 
@@ -49,10 +48,5 @@ void Bullet::Fire(Vector3 pos, Vector3 dir)
 	SetActive(true);
 }
 
-void Bullet::IsCollisionWithEnemy(Collider* collider)
-{
-	if (collider->IsCollision(this))
-		SetActive(false);
-}
 
 
