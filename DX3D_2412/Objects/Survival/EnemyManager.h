@@ -18,6 +18,7 @@ public:
 	void Edit();
 
 	void GetPlayer(SurvivalPlayer* player);
+	void GetDamagedFromBullet(Collider* collider);
 
 private:
 	void Spawning();

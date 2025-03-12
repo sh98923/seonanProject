@@ -13,17 +13,21 @@ public:
 	void Render();
 
 	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
+
 	void Spawn();
 	void Trace();
 
+public:
+	float curHp = 5;
 
 private:
 	Transform* transform;
 	SurvivalPlayer* player = nullptr;
+	Bullet* bullet;
 
 	float moveSpeed = 5.0f;
 	Vector3 velocity;
-	float curHp = 10;
+	
 	float maxHp;
 	
 };

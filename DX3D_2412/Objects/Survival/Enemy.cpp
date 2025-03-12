@@ -43,8 +43,6 @@ void Enemy::Trace()
 	{
 		Vector3 dir = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
 		Translate(dir * moveSpeed * DELTA);
+		localRotation.y = atan2(dir.x, dir.z);
 	}
 }
-
-
-

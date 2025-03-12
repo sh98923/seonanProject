@@ -58,6 +58,23 @@ void EnemyManager::GetPlayer(SurvivalPlayer* player)
 		enemy->SetPlayer(player);
 }
 
+void EnemyManager::GetDamagedFromBullet(Collider* collider)
+{
+	for (Enemy* enemy : enemies)
+	{
+		if (enemy->IsCollision(collider))
+		{
+			enemy->SetColor(1, 0, 0);
+			enemy->curHp--;
+			if (enemy->curHp <= 0)
+			{
+				enemy->SetActive(false);
+			}
+			return;
+		}
+	}
+}
+
 void EnemyManager::Spawning()
 {
 	for (Enemy* enemy : enemies)
