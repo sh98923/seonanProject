@@ -3,7 +3,7 @@
 
 SurvivalPlayer::SurvivalPlayer() : CapsuleCollider()
 {
-	
+
 	CAM->SetTarget(this);
 	CAM->TargetOptionLoad("ShootingView");
 
@@ -21,6 +21,7 @@ void SurvivalPlayer::Update()
 	Move();
 	Fire();
 	Rotate();
+	GetDamagedFromEnemy(enemy);
 
 	UpdateWorld();
 
@@ -85,3 +86,21 @@ void SurvivalPlayer::CreateBullet()
 {
 	BulletManager::Get();
 }
+
+void SurvivalPlayer::GetDamagedFromEnemy(Collider* collider)
+{
+	if (collider == nullptr) return;
+
+	hitTime += DELTA;
+
+	if (this->IsCollision(collider))
+	{
+		if (hitTime > HIT_INTERVAL)
+		{
+			this->curHp--;
+			hitTime = 0;
+			return;
+		}
+	}
+}
+

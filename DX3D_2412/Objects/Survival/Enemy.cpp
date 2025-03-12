@@ -17,6 +17,7 @@ void Enemy::Update()
 {
 	Trace();
 	BulletManager::Get()->IsCollisionWithEnemy(this);
+	player->GetDamagedFromEnemy(this);
 	UpdateWorld();
 }
 
