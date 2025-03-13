@@ -285,6 +285,9 @@
     <ClInclude Include="Objects\Survival\SurvivalPlayer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Objects\Survival\Credit.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DX3D_2412.cpp">
@@ -519,6 +522,9 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Objects\Survival\SurvivalPlayer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Objects\Survival\Credit.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

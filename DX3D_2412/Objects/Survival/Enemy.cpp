@@ -46,3 +46,4 @@ void Enemy::Trace()
 		localRotation.y = atan2(dir.x, dir.z);
 	}
 }
+

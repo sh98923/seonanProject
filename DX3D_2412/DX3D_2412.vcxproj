@@ -205,6 +205,7 @@
     <ClInclude Include="Objects\Pacman\MapManager.h" />
     <ClInclude Include="Objects\Survival\Bullet.h" />
     <ClInclude Include="Objects\Survival\BulletManager.h" />
+    <ClInclude Include="Objects\Survival\Credit.h" />
     <ClInclude Include="Objects\Survival\Enemy.h" />
     <ClInclude Include="Objects\Survival\EnemyManager.h" />
     <ClInclude Include="Objects\Survival\SurvivalPlayer.h" />
@@ -290,6 +291,7 @@
     <ClCompile Include="Objects\Pacman\MapManager.cpp" />
     <ClCompile Include="Objects\Survival\Bullet.cpp" />
     <ClCompile Include="Objects\Survival\BulletManager.cpp" />
+    <ClCompile Include="Objects\Survival\Credit.cpp" />
     <ClCompile Include="Objects\Survival\Enemy.cpp" />
     <ClCompile Include="Objects\Survival\EnemyManager.cpp" />
     <ClCompile Include="Objects\Survival\Player.cpp" />

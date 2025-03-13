@@ -17,6 +17,7 @@ public:
 	void Spawn();
 	void Trace();
 
+
 public:
 	float curHp = 5;
 
