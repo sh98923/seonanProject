@@ -4,6 +4,7 @@
 SurvivalScene::SurvivalScene()
 {
 	EnemyManager::Get();
+	CreditManager::Get();
 	player = new SurvivalPlayer();
 	player->SetLocalPosition(0, 2, 0);
 	EnemyManager::Get()->GetPlayer(player);
@@ -24,6 +25,7 @@ SurvivalScene::~SurvivalScene()
 void SurvivalScene::Update()
 {
 	EnemyManager::Get()->Update();
+	CreditManager::Get()->Update();
 	player->Update();
 }
 
@@ -34,6 +36,7 @@ void SurvivalScene::PreRender()
 void SurvivalScene::Render()
 {
 	EnemyManager::Get()->Render();
+	CreditManager::Get()->Render();
 	player->Render();
 	plane->Render();
 }

@@ -20,6 +20,8 @@ public:
 	void GetPlayer(SurvivalPlayer* player);
 	void GetDamagedFromBullet(Collider* collider);
 
+	void DropCredit();
+
 private:
 	void Spawning();
 

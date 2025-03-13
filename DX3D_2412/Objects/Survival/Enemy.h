@@ -17,14 +17,14 @@ public:
 	void Spawn();
 	void Trace();
 
-
 public:
-	float curHp = 5;
+	int curHp = 5;
 
 private:
 	Transform* transform;
 	SurvivalPlayer* player = nullptr;
 	Bullet* bullet;
+	Credit* credit;
 
 	float moveSpeed = 5.0f;
 	Vector3 velocity;

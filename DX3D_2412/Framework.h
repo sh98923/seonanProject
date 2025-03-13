@@ -155,6 +155,7 @@ typedef function<void(int)> IntParamEvent;
 
 #include "Objects/Survival/SurvivalPlayer.h"
 #include "Objects/Survival/Credit.h"
+#include "Objects/Survival/CreditManager.h"
 #include "Objects/Survival/Bullet.h"
 #include "Objects/Survival/BulletManager.h"
 #include "Objects/Survival/Enemy.h"

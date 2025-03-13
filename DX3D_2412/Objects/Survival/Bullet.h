@@ -17,7 +17,6 @@ public:
 
 private:
 	Transform* transform;
-	Collider* collider;
 
 	float speed = 5.0f;
 	Vector3 velocity;

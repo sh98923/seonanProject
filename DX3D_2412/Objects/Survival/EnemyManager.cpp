@@ -68,10 +68,19 @@ void EnemyManager::GetDamagedFromBullet(Collider* collider)
 			enemy->curHp--;
 			if (enemy->curHp <= 0)
 			{
-				enemy->SetActive(false);
+				DropCredit();
 			}
 			return;
 		}
+	}
+}
+
+void EnemyManager::DropCredit()
+{
+	for (Enemy* enemy : enemies)
+	{
+		enemy->SetActive(false);	
+		CreditManager::Get()->SpawnCredit(enemy->GetLocalPosition());
 	}
 }
 

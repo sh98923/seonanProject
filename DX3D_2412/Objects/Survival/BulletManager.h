@@ -21,7 +21,6 @@ public:
 	void IsCollisionWithEnemy(Collider* collider);
 
 private:
-	ModelInstancing* modelInstancing;
-
+	ModelInstancing* bulletModel;
 	vector<Bullet*> bullets;
 };

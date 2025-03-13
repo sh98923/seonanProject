@@ -2,13 +2,13 @@
 
 BulletManager::BulletManager()
 {
-	modelInstancing = new ModelInstancing("Arrow", SIZE);
+	bulletModel = new ModelInstancing("Arrow", SIZE);
 
 	bullets.reserve(SIZE);
 
 	FOR(SIZE)
 	{
-		Bullet* bullet = new Bullet(modelInstancing->Add());
+		Bullet* bullet = new Bullet(bulletModel->Add());
 		bullet->SetActive(false);
 
 		bullets.push_back(bullet);
@@ -17,7 +17,7 @@ BulletManager::BulletManager()
 
 BulletManager::~BulletManager()
 {
-	delete modelInstancing;
+	delete bulletModel;
 }
 
 void BulletManager::Update()
@@ -25,7 +25,7 @@ void BulletManager::Update()
 	for (Bullet* bullet : bullets)
 		bullet->Update();
 
-	modelInstancing->Update();
+	bulletModel->Update();
 }
 
 void BulletManager::Render()
@@ -33,12 +33,12 @@ void BulletManager::Render()
 	for (Bullet* bullet : bullets)
 		bullet->Render();
 
-	modelInstancing->Render();
+	bulletModel->Render();
 }
 
 void BulletManager::Edit()
 {
-	modelInstancing->Edit();
+	bulletModel->Edit();
 
 	for (Bullet* bullet : bullets)
 		bullet->Edit();

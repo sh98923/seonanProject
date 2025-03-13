@@ -3,12 +3,18 @@
 class Credit : public SphereCollider
 {
 public:
-	Credit();
+	Credit(Transform* transform);
 	~Credit();
 
 	void Update();
 	void Render();
+	void Edit();
+
+	void SetTarget(SurvivalPlayer* target) { this->target = target; }
 
 private:
-	float radius;
+	Transform* transform;
+	SurvivalPlayer* target;
+
+	float pullingForce = 100.0f;
 };
