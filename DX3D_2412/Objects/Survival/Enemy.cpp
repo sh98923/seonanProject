@@ -23,18 +23,18 @@ void Enemy::Update()
 
 void Enemy::Render()
 {
-	if(IsActive())
+	if (IsActive())
 	{
 		Collider::Render();
 	}
-		
+			
 	//Render();
 }
 
 void Enemy::Spawn()
 {
-	isActive = true;
-	SetLocalPosition(GameMath::Random(Vector3(-20.0f, 1.0f, -20.0f), Vector3(20.0f, 1.0f, 20.0f)));
+	this->SetActive(true);
+	SetLocalPosition(GameMath::Random(Vector3(-30.0f, 1.0f, -30.0f), Vector3(30.0f, 1.0f, 30.0f)));
 }
 
 void Enemy::Trace()

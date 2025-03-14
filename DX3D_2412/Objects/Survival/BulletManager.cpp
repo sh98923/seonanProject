@@ -63,6 +63,7 @@ void BulletManager::IsCollisionWithEnemy(Collider* collider)
 		if (bullet->IsCollision(collider))
 		{
 			bullet->SetActive(false);
+			return;
 		}
 	}
 }

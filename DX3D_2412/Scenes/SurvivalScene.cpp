@@ -9,8 +9,8 @@ SurvivalScene::SurvivalScene()
 	player->SetLocalPosition(0, 2, 0);
 	EnemyManager::Get()->GetPlayer(player);
 
-	plane = new Plane(Vector2(50, 50), 2, 2);
-	plane->SetLocalPosition(-25, 0, -25);
+	plane = new Plane(Vector2(70, 70), 2, 2);
+	plane->SetLocalPosition(-35, 0, -35);
 	plane->UpdateWorld();
 	plane->GetMaterial()->SetDiffuseMap(L"Resources/Textures/Landscape/Box.png");
 }

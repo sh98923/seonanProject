@@ -3,7 +3,7 @@
 
 CreditManager::CreditManager()
 {
-	//creditModel = new ModelInstancing("Arrow", POOL_SIZE);
+	creditModel = new ModelInstancing("MyPlayer", POOL_SIZE);
 
 	credits.reserve(POOL_SIZE);
 

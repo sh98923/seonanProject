@@ -16,5 +16,5 @@ private:
 	Transform* transform;
 	SurvivalPlayer* target;
 
-	float pullingForce = 100.0f;
+	float pullingRange = 100.0f;
 };
