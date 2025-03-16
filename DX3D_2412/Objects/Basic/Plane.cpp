@@ -25,8 +25,8 @@ void Plane::MakeMesh()
 		{
 			VertexType vertex;
 			vertex.pos = { x * dx, 0.0f, z * dz };
-			vertex.uv.x = x / (float)(col - 1);
-			vertex.uv.y = z / (float)(row - 1);
+			vertex.uv.x = (x / (float)(col - 1)) * 5;
+			vertex.uv.y = (z / (float)(row - 1)) * 5;
 
 			vertices.push_back(vertex);
 		}

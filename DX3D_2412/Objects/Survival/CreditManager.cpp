@@ -3,7 +3,7 @@
 
 CreditManager::CreditManager()
 {
-	creditModel = new ModelInstancing("MyPlayer", POOL_SIZE);
+	creditModel = new ModelInstancing("money", POOL_SIZE);
 
 	credits.reserve(POOL_SIZE);
 
@@ -31,10 +31,10 @@ void CreditManager::Update()
 
 void CreditManager::Render()
 {
+	creditModel->Render();
+
 	for (Credit* credit : credits)
 		credit->Render();
-
-	//creditModel->Render();
 }
 
 void CreditManager::Edit()

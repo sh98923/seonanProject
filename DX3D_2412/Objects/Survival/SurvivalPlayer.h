@@ -3,7 +3,7 @@ class Enemy;
 class SurvivalPlayer : public CapsuleCollider
 {
 private:
-	const float HIT_INTERVAL = 50.0f;
+	const float HIT_INTERVAL = 1.0f;
 
 public:
 	SurvivalPlayer();
@@ -26,6 +26,7 @@ private:
 	void CreateBullet();
 
 private:
+	Transform* transform;
 	float moveSpeed = 7.0f;
 	float rotSpeed = 1.0f;
 	float hitTime = 0.0f;

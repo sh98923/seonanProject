@@ -18,7 +18,7 @@ public:
 	void Trace();
 
 public:
-	int curHp = 5;
+	int curHp;
 
 private:
 	Transform* transform;
@@ -29,6 +29,6 @@ private:
 	float moveSpeed = 5.0f;
 	Vector3 velocity;
 	
-	float maxHp;
+	int maxHp = 5;
 	
 };

@@ -2,7 +2,7 @@
 
 BulletManager::BulletManager()
 {
-	bulletModel = new ModelInstancing("Arrow", SIZE);
+	bulletModel = new ModelInstancing("bullet", SIZE);
 
 	bullets.reserve(SIZE);
 
@@ -40,8 +40,8 @@ void BulletManager::Edit()
 {
 	bulletModel->Edit();
 
-	for (Bullet* bullet : bullets)
-		bullet->Edit();
+	//for (Bullet* bullet : bullets)
+	//	bullet->Edit();
 }
 
 void BulletManager::Fire(Vector3 pos, Vector3 direction)

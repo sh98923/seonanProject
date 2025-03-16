@@ -3,7 +3,7 @@
 
 ModelRenderScene::ModelRenderScene()
 {
-	model = new Model("MyPlayer");
+	model = new Model("money");
 	//model->SetShader(L"Model/Model.hlsl");
 }
 

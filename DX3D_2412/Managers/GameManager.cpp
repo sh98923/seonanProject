@@ -20,7 +20,7 @@
 GameManager::GameManager()
 {
 	SCENE->Create("Grid", new GridScene());
-	SCENE->Create("Export", new ModelExportScene());
+	//SCENE->Create("Export", new ModelExportScene());
 	//SCENE->Create("Start", new SphereScene());
 	//SCENE->Create("Start", new SpawnScene());
 	//SCENE->Create("Start", new CollisionScene());

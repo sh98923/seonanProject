@@ -62,11 +62,11 @@ void EnemyManager::GetDamagedFromBullet(Collider* collider)
 {
 	for (Enemy* enemy : enemies)
 	{
-		if (enemy->IsCollision(collider) && enemy->IsActive())
+		if (enemy->IsCollision(collider))
 		{
 			//enemy->SetColor(1, 0, 0);
 			enemy->curHp--;
-			DropCredit();
+			//DropCredit();
 			if (enemy->curHp == 4)
 			{
 				enemy->SetColor(1, 0, 0);
@@ -83,6 +83,11 @@ void EnemyManager::GetDamagedFromBullet(Collider* collider)
 			{
 				enemy->SetColor(1, 1, 1);
 			}
+			else if (enemy->curHp == 0)
+			{
+				enemy->SetActive(false);
+				CreditManager::Get()->SpawnCredit(enemy->GetGlobalPosition());
+			}
 			return;
 		}
 	}
@@ -92,10 +97,9 @@ void EnemyManager::DropCredit()
 {
 	for (Enemy* enemy : enemies)
 	{
-		if (enemy->curHp <= 0)
+		if (enemy->IsActive() && enemy->curHp <= 0)
 		{
-			enemy->SetActive(false);
-			CreditManager::Get()->SpawnCredit(enemy->GetLocalPosition());
+			
 		}
 	}
 }

@@ -12,7 +12,7 @@ SurvivalScene::SurvivalScene()
 	plane = new Plane(Vector2(70, 70), 2, 2);
 	plane->SetLocalPosition(-35, 0, -35);
 	plane->UpdateWorld();
-	plane->GetMaterial()->SetDiffuseMap(L"Resources/Textures/Landscape/Box.png");
+	plane->GetMaterial()->SetDiffuseMap(L"Resources/Textures/Landscape/SurvivalGround3.png");
 }
 
 SurvivalScene::~SurvivalScene()

@@ -15,6 +15,7 @@ Enemy::~Enemy()
 
 void Enemy::Update()
 {
+	if (!IsActive()) return;
 	Trace();
 	BulletManager::Get()->IsCollisionWithEnemy(this);
 	player->GetDamagedFromEnemy(this);
@@ -33,7 +34,9 @@ void Enemy::Render()
 
 void Enemy::Spawn()
 {
-	this->SetActive(true);
+	curHp = maxHp;
+	SetColor(0, 1, 0);
+	SetActive(true);
 	SetLocalPosition(GameMath::Random(Vector3(-30.0f, 1.0f, -30.0f), Vector3(30.0f, 1.0f, 30.0f)));
 }
 
