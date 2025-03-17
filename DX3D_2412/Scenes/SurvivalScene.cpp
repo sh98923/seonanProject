@@ -13,6 +13,7 @@ SurvivalScene::SurvivalScene()
 	plane->SetLocalPosition(-35, 0, -35);
 	plane->UpdateWorld();
 	plane->GetMaterial()->SetDiffuseMap(L"Resources/Textures/Landscape/SurvivalGround3.png");
+	plane->GetMaterial()->SetNormalMap(L"Resources/Textures/Landscape/SurvivalNormal3.png");
 }
 
 SurvivalScene::~SurvivalScene()
