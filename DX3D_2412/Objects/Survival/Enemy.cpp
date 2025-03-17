@@ -17,7 +17,8 @@ void Enemy::Update()
 {
 	if (!IsActive()) return;
 	Trace();
-	BulletManager::Get()->IsCollisionWithEnemy(this);
+	GetDamaged();
+	//BulletManager::Get()->IsCollisionWithEnemy(this);
 	player->GetDamagedFromEnemy(this);
 	UpdateWorld();
 }
@@ -47,6 +48,35 @@ void Enemy::Trace()
 		Vector3 dir = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
 		Translate(dir * moveSpeed * DELTA);
 		localRotation.y = atan2(dir.x, dir.z);
+	}
+}
+
+void Enemy::GetDamaged()
+{
+	if (BulletManager::Get()->IsCollisionWithEnemy(this))
+	{
+		curHp--;
+		if (curHp == 4)
+		{
+			SetColor(1, 0, 0);
+		}
+		else if (curHp == 3)
+		{
+			SetColor(0, 0, 1);
+		}
+		else if (curHp == 2)
+		{
+			SetColor(0, 0, 0);
+		}
+		else if (curHp == 1)
+		{
+			SetColor(1, 1, 1);
+		}
+		else if (curHp == 0)
+		{
+			SetActive(false);
+			CreditManager::Get()->SpawnCredit(GetGlobalPosition());
+		}
 	}
 }
 

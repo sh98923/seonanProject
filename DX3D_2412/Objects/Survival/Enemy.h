@@ -16,6 +16,7 @@ public:
 
 	void Spawn();
 	void Trace();
+	void GetDamaged();
 
 public:
 	int curHp;

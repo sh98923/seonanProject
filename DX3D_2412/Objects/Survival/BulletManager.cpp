@@ -56,14 +56,15 @@ void BulletManager::Fire(Vector3 pos, Vector3 direction)
 	}
 }
 
-void BulletManager::IsCollisionWithEnemy(Collider* collider)
+bool BulletManager::IsCollisionWithEnemy(Collider* collider)
 {
 	for (Bullet* bullet : bullets)
 	{
 		if (bullet->IsCollision(collider))
 		{
 			bullet->SetActive(false);
-			return;
+			return true;
 		}
 	}
+	return false;
 }

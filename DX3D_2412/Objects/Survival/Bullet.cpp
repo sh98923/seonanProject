@@ -26,7 +26,7 @@ void Bullet::Update()
 		SetActive(false);
 
 	Translate(velocity * speed * DELTA);
-	EnemyManager::Get()->GetDamagedFromBullet(this);
+	//EnemyManager::Get()->GetDamagedFromBullet(this);
 	UpdateWorld();	
 }
 
