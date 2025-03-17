@@ -8,6 +8,7 @@ SurvivalScene::SurvivalScene()
 	player = new SurvivalPlayer();
 	player->SetLocalPosition(0, 2, 0);
 	EnemyManager::Get()->GetPlayer(player);
+	CreditManager::Get()->GetPlayer(player);
 
 	plane = new Plane(Vector2(70, 70), 2, 2);
 	plane->SetLocalPosition(-35, 0, -35);
@@ -19,6 +20,7 @@ SurvivalScene::SurvivalScene()
 SurvivalScene::~SurvivalScene()
 {
 	EnemyManager::Delete();
+	CreditManager::Delete();
 	delete player;
 	delete plane;
 }
@@ -45,8 +47,10 @@ void SurvivalScene::Render()
 void SurvivalScene::PostRender()
 {
 	player->PostRender();
-	string Hp = "HP : " + to_string(player->curHp);
-	Font::Get()->RenderText(Hp, { 80, SCREEN_HEIGHT - 40 });
+	string hp = "HP : " + to_string(player->curHp);
+	Font::Get()->RenderText(hp, { 80, SCREEN_HEIGHT - 40 });
+	string money = "MONEY : " + to_string(player->ownedMoney);
+	Font::Get()->RenderText(money, { 100, SCREEN_HEIGHT - 70 });
 }
 
 void SurvivalScene::GUIRender()

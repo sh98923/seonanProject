@@ -1,7 +1,7 @@
 #include "Framework.h"
 
 Credit::Credit(Transform* transform)
-	: SphereCollider(0.5f), transform(transform)
+	: SphereCollider(0.4f), transform(transform)
 {
 	SetTag(transform->GetTag() + "_Collider");
 	transform->SetParent(this); 
@@ -18,6 +18,8 @@ Credit::~Credit()
 
 void Credit::Update()
 {
+	if (!IsActive()) return;
+	player->ObtainMoney(this);
 	UpdateWorld();
 }
 

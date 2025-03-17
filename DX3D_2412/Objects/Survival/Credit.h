@@ -10,11 +10,11 @@ public:
 	void Render();
 	void Edit();
 
-	void SetTarget(SurvivalPlayer* target) { this->target = target; }
+	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
 
 private:
 	Transform* transform;
-	SurvivalPlayer* target;
+	SurvivalPlayer* player = nullptr;
 
 	float pullingRange = 100.0f;
 };

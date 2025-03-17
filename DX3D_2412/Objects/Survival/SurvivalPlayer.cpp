@@ -22,6 +22,7 @@ void SurvivalPlayer::Update()
 	Fire();
 	Rotate();
 	GetDamagedFromEnemy(enemy);
+	ObtainMoney(credit);
 
 	UpdateWorld();
 
@@ -101,6 +102,17 @@ void SurvivalPlayer::GetDamagedFromEnemy(Collider* collider)
 			hitTime -= HIT_INTERVAL;
 			return;
 		}
+	}
+}
+
+void SurvivalPlayer::ObtainMoney(Collider* collider)
+{
+	if (collider == nullptr) return;
+
+	if (this->IsCollision(collider))
+	{
+		collider->SetActive(false);
+		ownedMoney++;
 	}
 }
 

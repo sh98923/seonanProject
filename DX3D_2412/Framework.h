@@ -154,6 +154,8 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Manager/PoolingManager.h"
 
 #include "Objects/Survival/SurvivalPlayer.h"
+#include "Objects/Survival/Item.h"
+#include "Objects/Survival/ItemManager.h"
 #include "Objects/Survival/Credit.h"
 #include "Objects/Survival/CreditManager.h"
 #include "Objects/Survival/Bullet.h"

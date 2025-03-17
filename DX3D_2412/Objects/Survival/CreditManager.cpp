@@ -42,6 +42,12 @@ void CreditManager::Edit()
 	creditModel->Edit();
 }
 
+void CreditManager::GetPlayer(SurvivalPlayer* player)
+{
+	for (Credit* credit : credits)
+		credit->SetPlayer(player);
+}
+
 void CreditManager::SpawnCredit(Vector3 pos)
 {
 	for (Credit* credit : credits)

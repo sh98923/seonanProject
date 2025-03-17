@@ -15,6 +15,8 @@ public:
 	void Render();
 	void Edit();
 
+	void GetPlayer(SurvivalPlayer* player);
+
 	void SpawnCredit(Vector3 pos);
 
 private:

@@ -1,5 +1,7 @@
 #pragma once
 class Enemy;
+class Credit;
+
 class SurvivalPlayer : public CapsuleCollider
 {
 private:
@@ -10,12 +12,14 @@ public:
 	~SurvivalPlayer();
 
 	int curHp = 10;
+	int ownedMoney = 0;
 
 public:
 	void Update();
 	void Render();
 	void PostRender();
 	void GetDamagedFromEnemy(Collider* collider);
+	void ObtainMoney(Collider* collider);
 
 private:
 	void Control();
@@ -32,6 +36,7 @@ private:
 	float hitTime = 0.0f;
 
 	Enemy* enemy;
+	Credit* credit;
 
 	int maxHp;
 	Vector3 velocity;
