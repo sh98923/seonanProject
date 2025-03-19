@@ -19,7 +19,9 @@ Credit::~Credit()
 void Credit::Update()
 {
 	if (!IsActive()) return;
+	
 	player->ObtainMoney(this);
+	AbsorbedToPlayer();
 	UpdateWorld();
 }
 
@@ -33,4 +35,16 @@ void Credit::Render()
 void Credit::Edit()
 {
 	Transform::Edit();
+}
+
+void Credit::AbsorbedToPlayer()
+{
+	Vector3 pos = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
+	float dir = Vector3::Distance(GetLocalPosition() , player->GetLocalPosition());
+	
+	//if (absorbRange > dir.x)
+	if (dir < absorbRange)
+	{
+		Translate(pos * absorbedSpeed * DELTA);
+	}
 }

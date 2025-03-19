@@ -12,9 +12,12 @@ public:
 
 	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
 
+	void AbsorbedToPlayer();
+
 private:
 	Transform* transform;
 	SurvivalPlayer* player = nullptr;
 
-	float pullingRange = 100.0f;
+	float absorbedSpeed = 10.0f;
+	float absorbRange = 10.0f;
 };

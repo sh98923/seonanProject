@@ -56,6 +56,7 @@ void CreditManager::SpawnCredit(Vector3 pos)
 		{
 			credit->SetActive(true);
 			credit->SetLocalPosition(pos);
+			credit->UpdateWorld();
 			return;
 		}
 	}

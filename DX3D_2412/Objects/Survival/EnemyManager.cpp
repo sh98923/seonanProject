@@ -58,40 +58,40 @@ void EnemyManager::GetPlayer(SurvivalPlayer* player)
 		enemy->SetPlayer(player);
 }
 
-void EnemyManager::GetDamagedFromBullet(Collider* collider)
-{
-	for (Enemy* enemy : enemies)
-	{
-		if (enemy->IsCollision(collider))
-		{
-			//enemy->SetColor(1, 0, 0);
-			enemy->curHp--;
-			//DropCredit();
-			if (enemy->curHp == 4)
-			{
-				enemy->SetColor(1, 0, 0);
-			}
-			else if (enemy->curHp == 3)
-			{
-				enemy->SetColor(0, 0, 1);
-			}
-			else if (enemy->curHp == 2)
-			{
-				enemy->SetColor(0, 0, 0);
-			}
-			else if (enemy->curHp == 1)
-			{
-				enemy->SetColor(1, 1, 1);
-			}
-			else if (enemy->curHp == 0)
-			{
-				enemy->SetActive(false);
-				CreditManager::Get()->SpawnCredit(enemy->GetGlobalPosition());
-			}
-			return;
-		}
-	}
-}
+//void EnemyManager::GetDamagedFromBullet(Collider* collider)
+//{
+//	for (Enemy* enemy : enemies)
+//	{
+//		if (enemy->IsCollision(collider))
+//		{
+//			//enemy->SetColor(1, 0, 0);
+//			enemy->curHp--;
+//			//DropCredit();
+//			if (enemy->curHp == 4)
+//			{
+//				enemy->SetColor(1, 0, 0);
+//			}
+//			else if (enemy->curHp == 3)
+//			{
+//				enemy->SetColor(0, 0, 1);
+//			}
+//			else if (enemy->curHp == 2)
+//			{
+//				enemy->SetColor(0, 0, 0);
+//			}
+//			else if (enemy->curHp == 1)
+//			{
+//				enemy->SetColor(1, 1, 1);
+//			}
+//			else if (enemy->curHp == 0)
+//			{
+//				enemy->SetActive(false);
+//				CreditManager::Get()->SpawnCredit(enemy->GetGlobalPosition());
+//			}
+//			return;
+//		}
+//	}
+//}
 
 void EnemyManager::DropCredit()
 {

@@ -74,8 +74,9 @@ void Enemy::GetDamaged()
 		}
 		else if (curHp == 0)
 		{
-			SetActive(false);
 			CreditManager::Get()->SpawnCredit(GetGlobalPosition());
+			SetActive(false);
+			curHp = maxHp;
 		}
 	}
 }
