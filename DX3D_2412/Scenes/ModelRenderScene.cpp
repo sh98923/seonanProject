@@ -3,7 +3,7 @@
 
 ModelRenderScene::ModelRenderScene()
 {
-	model = new Model("money");
+	model = new Model("pinetree");
 	//model->SetShader(L"Model/Model.hlsl");
 }
 

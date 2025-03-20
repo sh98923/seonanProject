@@ -93,16 +93,16 @@ void EnemyManager::GetPlayer(SurvivalPlayer* player)
 //	}
 //}
 
-void EnemyManager::DropCredit()
-{
-	for (Enemy* enemy : enemies)
-	{
-		if (enemy->IsActive() && enemy->curHp <= 0)
-		{
-			
-		}
-	}
-}
+//void EnemyManager::DropCredit()
+//{
+//	for (Enemy* enemy : enemies)
+//	{
+//		if (enemy->IsActive() && enemy->curHp <= 0)
+//		{
+//			
+//		}
+//	}
+//}
 
 void EnemyManager::Spawning()
 {

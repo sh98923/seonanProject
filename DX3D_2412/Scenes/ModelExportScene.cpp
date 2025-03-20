@@ -3,7 +3,7 @@
 
 ModelExportScene::ModelExportScene()
 {
-    string name = "money";
+    string name = "pinetree";
     string extension = "fbx";
     string file = "Resources/Models/FBX/" + name + "." + extension;
 

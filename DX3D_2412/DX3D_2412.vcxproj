@@ -214,6 +214,7 @@
     <ClInclude Include="Objects\Survival\Player.h" />
     <ClInclude Include="Objects\Survival\CreditManager.h" />
     <ClInclude Include="Objects\Survival\Tree.h" />
+    <ClInclude Include="Objects\Survival\TreeManager.h" />
     <ClInclude Include="Objects\UI\Button.h" />
     <ClInclude Include="Objects\UI\ProgressBar.h" />
     <ClInclude Include="Resource.h" />
@@ -304,6 +305,7 @@
     <ClCompile Include="Objects\Survival\Player.cpp" />
     <ClCompile Include="Objects\Survival\SurvivalPlayer.cpp" />
     <ClCompile Include="Objects\Survival\Tree.cpp" />
+    <ClCompile Include="Objects\Survival\TreeManager.cpp" />
     <ClCompile Include="Objects\UI\Button.cpp" />
     <ClCompile Include="Objects\UI\ProgressBar.cpp" />
     <ClCompile Include="Scenes\CollisionScene.cpp" />
