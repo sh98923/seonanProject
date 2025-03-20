@@ -38,10 +38,10 @@ void BulletManager::Render()
 
 void BulletManager::Edit()
 {
-	bulletModel->Edit();
+	for (Bullet* bullet : bullets)
+		bullet->Edit();
 
-	//for (Bullet* bullet : bullets)
-	//	bullet->Edit();
+	//bulletModel->Edit();
 }
 
 void BulletManager::Fire(Vector3 pos, Vector3 direction)

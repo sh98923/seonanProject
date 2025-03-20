@@ -42,18 +42,18 @@ Vector3 GameMath::ClosestPointOnLine(const Vector3& start, const Vector3& end, c
     return start + line * t;
 }
 
-//float GameMath::Lerp(const float& start, const float& end, const float& t)
-//{
-//    return start + (end - start) * t;
-//}
-//
-//Vector2 GameMath::Lerp(const Vector2& start, const Vector2& end, const float& t)
-//{
-//    return start + (end - start) * t;
-//}
-//
-//Vector3 GameMath::Lerp(const Vector3& start, const Vector3& end, const float& t)
-//{
-//    return start + (end - start) * t;
-//}
+float GameMath::Lerp(const float& start, const float& end, const float& t)
+{
+    return start + (end - start) * t;
+}
+
+Vector2 GameMath::Lerp(const Vector2& start, const Vector2& end, const float& t)
+{
+    return start + (end - start) * t;
+}
+
+Vector3 GameMath::Lerp(const Vector3& start, const Vector3& end, const float& t)
+{
+    return start + (end - start) * t;
+}
 

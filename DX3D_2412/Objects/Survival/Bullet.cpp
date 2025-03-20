@@ -5,9 +5,11 @@ Bullet::Bullet(Transform* transform)
 {
 	SetTag(transform->GetTag() + "_Collider");
 	transform->SetParent(this);
+
 	transform->SetLocalScale(0.05f, 0.05f, 0.05f);
 	transform->SetLocalRotation(XM_PIDIV2, 0, 0);
 	transform->SetLocalPosition(0, 1.0f, 0);
+	
 	transform->SetTag("bullet_0");
 	transform->Load();
 }
@@ -37,7 +39,7 @@ void Bullet::Render()
 
 void Bullet::Edit()
 {
-	transform->Edit();
+	//transform->Edit();
 	Transform::Edit();
 }
 

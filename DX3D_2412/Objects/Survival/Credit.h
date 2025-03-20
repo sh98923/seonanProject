@@ -12,12 +12,12 @@ public:
 
 	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
 
-	void AbsorbedToPlayer();
+	void PickedUpToPlayer();
 
 private:
 	Transform* transform;
 	SurvivalPlayer* player = nullptr;
 
-	float absorbedSpeed = 10.0f;
-	float absorbRange = 10.0f;
+	float pickUpSpeed = 10.0f;
+	float pickUpRange = 10.0f;
 };

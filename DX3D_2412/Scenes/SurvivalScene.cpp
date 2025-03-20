@@ -3,8 +3,6 @@
 
 SurvivalScene::SurvivalScene()
 {
-	EnemyManager::Get();
-	CreditManager::Get();
 	player = new SurvivalPlayer();
 	player->SetLocalPosition(0, 2, 0);
 	EnemyManager::Get()->GetPlayer(player);
@@ -56,6 +54,6 @@ void SurvivalScene::PostRender()
 void SurvivalScene::GUIRender()
 {
 	player->Edit();
-	EnemyManager::Get()->Edit();
+	//EnemyManager::Get()->Edit();
 	BulletManager::Get()->Edit();
 }

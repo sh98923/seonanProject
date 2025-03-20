@@ -154,6 +154,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Manager/PoolingManager.h"
 
 #include "Objects/Survival/SurvivalPlayer.h"
+#include "Objects/Survival/Tree.h"
 #include "Objects/Survival/Item.h"
 #include "Objects/Survival/ItemManager.h"
 #include "Objects/Survival/Credit.h"
@@ -162,6 +163,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Survival/BulletManager.h"
 #include "Objects/Survival/Enemy.h"
 #include "Objects/Survival/EnemyManager.h"
+
 #include "Objects/Survival/Player.h"
 
 #include "Objects/MineCraft/Block.h"

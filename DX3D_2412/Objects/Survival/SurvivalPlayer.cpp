@@ -3,7 +3,7 @@
 
 SurvivalPlayer::SurvivalPlayer() : CapsuleCollider()
 {
-
+	curHp = maxHp;
 	CAM->SetTarget(this);
 	CAM->TargetOptionLoad("ShootingView");
 
@@ -21,8 +21,9 @@ void SurvivalPlayer::Update()
 	Move();
 	Fire();
 	Rotate();
-	GetDamagedFromEnemy(enemy);
 	ObtainMoney(credit);
+	//GetDamagedFromEnemy(enemy);
+	
 
 	UpdateWorld();
 
@@ -94,14 +95,33 @@ void SurvivalPlayer::GetDamagedFromEnemy(Collider* collider)
 
 	if (this->IsCollision(collider))
 	{
-		hitTime += DELTA;
-
-		if (hitTime >= HIT_INTERVAL)
+		if (enemyHitTimes.find(collider) == enemyHitTimes.end())
+		{
+			enemyHitTimes[collider] = hitTime;
+			isDamaged[collider] = true;
+		}
+		
+		enemyHitTimes[collider] += DELTA;
+		
+		if (enemyHitTimes[collider] >= HIT_INTERVAL && isDamaged[collider])
 		{
 			this->curHp--;
-			hitTime -= HIT_INTERVAL;
-			return;
+			isDamaged[collider] = false;
 		}
+		
+		if (enemyHitTimes[collider] >= HIT_INTERVAL)
+		{
+			enemyHitTimes[collider] -= HIT_INTERVAL;
+			isDamaged[collider] = true;
+		}
+		//hitTime += DELTA;
+		//
+		//if (hitTime >= HIT_INTERVAL)
+		//{
+		//	this->curHp--;
+		//	hitTime -= HIT_INTERVAL;
+		//	return;
+		//}
 	}
 }
 
