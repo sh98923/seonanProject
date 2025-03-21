@@ -2,15 +2,15 @@
 
 EnemyManager::EnemyManager()
 {
-	enemyModel = new ModelInstancing("MyPlayer", enemyCount);
-
+	enemyModel = new ModelInstancing("Zombie", enemyCount);
+	
 	enemies.reserve(enemyCount);
 
 	FOR(enemyCount)
 	{
 		Enemy* enemy = new Enemy(enemyModel->Add());
 		enemy->SetActive(false);
-
+		
 		enemies.push_back(enemy);
 	}
 }

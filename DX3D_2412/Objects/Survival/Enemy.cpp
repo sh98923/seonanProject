@@ -1,12 +1,19 @@
 #include "Framework.h"
 
 Enemy::Enemy(Transform* transform)
-	: CapsuleCollider(), transform(transform)
+	
 {
 	SetTag(transform->GetTag() + "_Collider");
 	transform->SetParent(this);
 	transform->SetTag("Enemy");
 	transform->Load();
+
+	//model = new ModelAnimator("zombie");
+	//model->ReadClip("running");
+	//model->CreateTexture();
+	//model->PlayClip(0);
+	//model->Load();
+	//model->SetParent(this);
 }
 
 Enemy::~Enemy()
@@ -21,6 +28,7 @@ void Enemy::Update()
 	//BulletManager::Get()->IsCollisionWithEnemy(this);
 	player->GetDamagedFromEnemy(this);
 	UpdateWorld();
+	//model->Update();
 }
 
 void Enemy::Render()
@@ -29,8 +37,7 @@ void Enemy::Render()
 	{
 		Collider::Render();
 	}
-			
-	//Render();
+	//model->Render();
 }
 
 void Enemy::Spawn()
@@ -38,7 +45,7 @@ void Enemy::Spawn()
 	curHp = maxHp;
 	SetColor(0, 1, 0);
 	SetActive(true);
-	SetLocalPosition(GameMath::Random(Vector3(-30.0f, 1.0f, -30.0f), Vector3(30.0f, 1.0f, 30.0f)));
+	SetLocalPosition(GameMath::Random(Vector3(-30.0f, 2.0f, -30.0f), Vector3(30.0f, 2.0f, 30.0f)));
 }
 
 void Enemy::Trace()

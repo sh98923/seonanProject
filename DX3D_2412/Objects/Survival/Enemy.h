@@ -23,6 +23,7 @@ public:
 
 private:
 	Transform* transform;
+	ModelAnimator* model;
 	SurvivalPlayer* player = nullptr;
 	Bullet* bullet;
 	Credit* credit;

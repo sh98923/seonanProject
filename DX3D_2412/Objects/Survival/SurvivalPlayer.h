@@ -35,11 +35,11 @@ private:
 	float moveSpeed = 7.0f;
 	float rotSpeed = 1.0f;
 	float hitTime = 0.0f;
+	int maxHp = 10;
 
 	Enemy* enemy;
 	Credit* credit;
 
-	int maxHp = 10;
 	Vector3 velocity;
 
 	bool isInvincible = false;

@@ -5,9 +5,11 @@ SurvivalScene::SurvivalScene()
 {
 	player = new SurvivalPlayer();
 	player->SetLocalPosition(0, 2, 0);
+	//enemy = new Enemy();
+	//enemy->Spawn();
+	//enemy->SetPlayer(player);
 	EnemyManager::Get()->GetPlayer(player);
 	CreditManager::Get()->GetPlayer(player);
-	//TreeManager::Get()->GetPlayer(player);
 	TreeManager::Get()->MakeSpace();
 
 	plane = new Plane(Vector2(70, 70), 2, 2);
@@ -33,6 +35,7 @@ void SurvivalScene::Update()
 	EnemyManager::Get()->Update();
 	CreditManager::Get()->Update();
 	player->Update();
+	//enemy->Update();
 }
 
 void SurvivalScene::PreRender()
@@ -45,6 +48,7 @@ void SurvivalScene::Render()
 	EnemyManager::Get()->Render();
 	CreditManager::Get()->Render();
 	player->Render();
+	//enemy->Render();
 	plane->Render();
 }
 

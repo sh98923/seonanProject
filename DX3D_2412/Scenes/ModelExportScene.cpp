@@ -3,21 +3,22 @@
 
 ModelExportScene::ModelExportScene()
 {
-    string name = "pinetree";
-    string extension = "fbx";
-    string file = "Resources/Models/FBX/" + name + "." + extension;
+    string name = "zombie";
+    //string extension = "fbx";
+    //string file = "Resources/Models/FBX/" + name + "." + extension;
 
-    exporter = new ModelExporter(name, file);
-    exporter->ExportMaterial();
-    exporter->ExportMesh();
-    delete exporter;
-
-    //string clipName = "Ghost_animation";
-    //file = "Resources/Models/Animations/" + name + "/" + clipName + ".fbx";    
-    //
     //exporter = new ModelExporter(name, file);
-    //exporter->ExportClip(clipName);
+    //exporter->ExportMaterial();
+    //exporter->ExportMesh();
     //delete exporter;
+
+    string clipName = "running";
+    string file = "Resources/Models/Animations/" + name + "/" + clipName + ".fbx";    
+    //file = "Resources/Models/Animations/Survival" + clipName + "/" + ".fbx";
+    
+    exporter = new ModelExporter(name, file);
+    exporter->ExportClip(clipName);
+    delete exporter;
     //
     //clipName = "Run";
     //file = "Resources/Models/Animations/" + name + "/" + clipName + ".fbx";

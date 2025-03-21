@@ -3,12 +3,13 @@
 
 ModelAnimationScene::ModelAnimationScene()
 {
-	model = new ModelAnimator("Ghost");	
+	model = new ModelAnimator("zombie");	
+	model->Load();
 	model->SetShader(L"Model/Model.hlsl");
-	FOR(6)
-		model->ReadClip("Ghost_animation", i);
+	//FOR(1)
+	//	model->ReadClip("run", i);
 	//model->ReadClip("Idle");
-	//model->ReadClip("Run");
+	model->ReadClip("running");
 	//model->ReadClip("Attack");
 	model->CreateTexture();
 }
@@ -24,18 +25,18 @@ void ModelAnimationScene::Update()
 	{
 		model->PlayClip(0);
 	}
-	if (KEY->Down('2'))
-	{
-		model->PlayClip(1);
-	}
-	if (KEY->Down('3'))
-	{
-		model->PlayClip(2);
-	}
-	if (KEY->Down('4'))
-	{
-		model->PlayClip(3);
-	}
+	//if (KEY->Down('2'))
+	//{
+	//	model->PlayClip(1);
+	//}
+	//if (KEY->Down('3'))
+	//{
+	//	model->PlayClip(2);
+	//}
+	//if (KEY->Down('4'))
+	//{
+	//	model->PlayClip(3);
+	//}
 
 	model->Update();
 }

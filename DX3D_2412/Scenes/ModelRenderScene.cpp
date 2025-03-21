@@ -3,7 +3,7 @@
 
 ModelRenderScene::ModelRenderScene()
 {
-	model = new Model("pinetree");
+	model = new Model("zombie");
 	//model->SetShader(L"Model/Model.hlsl");
 }
 
