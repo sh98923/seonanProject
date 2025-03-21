@@ -13,6 +13,7 @@ TreeManager::TreeManager()
 
 		trees.push_back(tree);
 	}
+	
 }
 
 TreeManager::~TreeManager()
@@ -40,12 +41,15 @@ void TreeManager::Edit()
 {
 	for (Tree* tree : trees)
 		tree->Edit();
+
+	treeModel->Edit();
 }
 
 void TreeManager::MakeSpace()
 {
 	for (Tree* tree : trees)
 		tree->SetActive(true);
+
 }
 
 void TreeManager::GetPlayer(SurvivalPlayer* player)

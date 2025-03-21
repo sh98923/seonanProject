@@ -21,10 +21,10 @@ void SurvivalPlayer::Update()
 	Move();
 	Fire();
 	Rotate();
+	GetInvincible();
 	ObtainMoney(credit);
 	//GetDamagedFromEnemy(enemy);
 	
-
 	UpdateWorld();
 
 	BulletManager::Get()->Update();
@@ -84,6 +84,16 @@ void SurvivalPlayer::Rotate()
 	localRotation.y = angle;
 }
 
+void SurvivalPlayer::GetInvincible()
+{
+	if (!isInvincible) return;
+
+	hitTime += DELTA;
+	
+	if (hitTime >= HIT_INTERVAL)
+		isInvincible = false;
+}
+
 void SurvivalPlayer::CreateBullet()
 {
 	BulletManager::Get();
@@ -92,36 +102,13 @@ void SurvivalPlayer::CreateBullet()
 void SurvivalPlayer::GetDamagedFromEnemy(Collider* collider)
 {
 	if (collider == nullptr) return;
+	if (isInvincible) return;
 
 	if (this->IsCollision(collider))
 	{
-		if (enemyHitTimes.find(collider) == enemyHitTimes.end())
-		{
-			enemyHitTimes[collider] = hitTime;
-			isDamaged[collider] = true;
-		}
-		
-		enemyHitTimes[collider] += DELTA;
-		
-		if (enemyHitTimes[collider] >= HIT_INTERVAL && isDamaged[collider])
-		{
-			this->curHp--;
-			isDamaged[collider] = false;
-		}
-		
-		if (enemyHitTimes[collider] >= HIT_INTERVAL)
-		{
-			enemyHitTimes[collider] -= HIT_INTERVAL;
-			isDamaged[collider] = true;
-		}
-		//hitTime += DELTA;
-		//
-		//if (hitTime >= HIT_INTERVAL)
-		//{
-		//	this->curHp--;
-		//	hitTime -= HIT_INTERVAL;
-		//	return;
-		//}
+		isInvincible = true;
+		curHp--;
+		hitTime = 0.0f;
 	}
 }
 

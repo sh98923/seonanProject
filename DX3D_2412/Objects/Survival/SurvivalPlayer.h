@@ -26,6 +26,7 @@ private:
 	void Move();
 	void Fire();
 	void Rotate();
+	void GetInvincible();
 
 	void CreateBullet();
 
@@ -34,12 +35,12 @@ private:
 	float moveSpeed = 7.0f;
 	float rotSpeed = 1.0f;
 	float hitTime = 0.0f;
-	unordered_map<Collider*, float> enemyHitTimes;
-	unordered_map<Collider*, bool> isDamaged;
 
 	Enemy* enemy;
 	Credit* credit;
 
 	int maxHp = 10;
 	Vector3 velocity;
+
+	bool isInvincible = false;
 };
