@@ -10,7 +10,7 @@ SurvivalScene::SurvivalScene()
 	//enemy->SetPlayer(player);
 	EnemyManager::Get()->GetPlayer(player);
 	CreditManager::Get()->GetPlayer(player);
-	TreeManager::Get()->MakeSpace();
+	//TreeManager::Get()->MakeSpace();
 
 	plane = new Plane(Vector2(70, 70), 2, 2);
 	plane->SetLocalPosition(-35, 0, -35);

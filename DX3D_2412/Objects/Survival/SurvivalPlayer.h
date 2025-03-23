@@ -32,6 +32,8 @@ private:
 
 private:
 	Transform* transform;
+	ModelAnimator* playerModel;
+
 	float moveSpeed = 7.0f;
 	float rotSpeed = 1.0f;
 	float hitTime = 0.0f;

@@ -7,8 +7,8 @@
 #define SCREEN_HEIGHT 720
 
 #define MAX_LIGHT 10
-#define MAX_BONE 256
-#define MAX_FRAME 256
+#define MAX_BONE 512
+#define MAX_FRAME 512
 #define MAX_INSTANCE 128
 
 #define CENTER Vector3(SCREEN_WIDTH >> 1, SCREEN_HEIGHT >> 1, 0.0f)

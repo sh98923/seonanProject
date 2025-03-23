@@ -3,6 +3,13 @@
 
 SurvivalPlayer::SurvivalPlayer() : CapsuleCollider()
 {
+	playerModel = new ModelAnimator("myPlayer");
+	playerModel->ReadClip("rifleidle");
+	playerModel->CreateTexture();
+	playerModel->PlayClip(0);
+	playerModel->Load();
+	playerModel->SetParent(this);
+
 	curHp = maxHp;
 	CAM->SetTarget(this);
 	CAM->TargetOptionLoad("ShootingView");
@@ -24,16 +31,16 @@ void SurvivalPlayer::Update()
 	GetInvincible();
 	ObtainMoney(credit);
 	//GetDamagedFromEnemy(enemy);
-	
-	UpdateWorld();
 
+	UpdateWorld();
+	playerModel->Update();
 	BulletManager::Get()->Update();
 }
 
 void SurvivalPlayer::Render()
 {
+	playerModel->Render();
 	CapsuleCollider::Render();
-
 	BulletManager::Get()->Render();
 }
 
