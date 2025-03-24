@@ -10,6 +10,7 @@ SurvivalPlayer::SurvivalPlayer() : CapsuleCollider()
 	playerModel->Load();
 	playerModel->SetParent(this);
 
+	//curState = PlayerState::DEFAULTIDLE;
 	curHp = maxHp;
 	CAM->SetTarget(this);
 	CAM->TargetOptionLoad("ShootingView");
@@ -24,6 +25,7 @@ SurvivalPlayer::~SurvivalPlayer()
 
 void SurvivalPlayer::Update()
 {
+	SetState();
 	Control();
 	Move();
 	Fire();
@@ -99,6 +101,19 @@ void SurvivalPlayer::GetInvincible()
 	
 	if (hitTime >= HIT_INTERVAL)
 		isInvincible = false;
+}
+
+void SurvivalPlayer::SetState()
+{
+	//switch (curState)
+	//{
+	//case PlayerState::DEFAULTIDLE :
+	//	//playerModel->ReadClip("rifleidle");
+	//	playerModel->PlayClip(0);
+	//	break;
+	//case PlayerState::SURVIVEIDLE :
+	//	break;
+	//}
 }
 
 void SurvivalPlayer::CreateBullet()

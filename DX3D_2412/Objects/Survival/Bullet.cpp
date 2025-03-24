@@ -1,12 +1,12 @@
 #include "Framework.h"
 
 Bullet::Bullet(Transform* transform)
-	: SphereCollider(0.4f), transform(transform)
+	: SphereCollider(0.3f), transform(transform)
 {
 	SetTag(transform->GetTag() + "_Collider");
 	transform->SetParent(this);
 
-	transform->SetLocalScale(0.05f, 0.05f, 0.05f);
+	transform->SetLocalScale(0.03f, 0.03f, 0.03f);
 	transform->SetLocalRotation(XM_PIDIV2, 0, 0);
 	transform->SetLocalPosition(0, 1.0f, 0);
 	

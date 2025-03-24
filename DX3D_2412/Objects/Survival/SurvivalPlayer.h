@@ -2,6 +2,11 @@
 class Enemy;
 class Credit;
 
+enum class PlayerState
+{
+	DEFAULTIDLE, SURVIVEIDLE, MOVEFIRE, NONE
+};
+
 class SurvivalPlayer : public CapsuleCollider
 {
 private:
@@ -27,12 +32,15 @@ private:
 	void Fire();
 	void Rotate();
 	void GetInvincible();
+	void SetState();
 
 	void CreateBullet();
 
 private:
 	Transform* transform;
 	ModelAnimator* playerModel;
+
+	PlayerState curState;
 
 	float moveSpeed = 7.0f;
 	float rotSpeed = 1.0f;
