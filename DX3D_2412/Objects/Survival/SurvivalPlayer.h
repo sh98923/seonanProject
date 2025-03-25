@@ -32,7 +32,7 @@ private:
 	void Fire();
 	void Rotate();
 	void GetInvincible();
-	void SetState();
+	void SetState(PlayerState curState);
 
 	void CreateBullet();
 
