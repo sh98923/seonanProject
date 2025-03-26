@@ -1,16 +1,17 @@
 #include "Framework.h"
 #include "SurvivalPlayer.h"
 
-SurvivalPlayer::SurvivalPlayer() : CapsuleCollider()
+SurvivalPlayer::SurvivalPlayer()
 {
+	Load();
+
 	playerModel = new ModelAnimator("myPlayer");
-	playerModel->ReadClip("rifleidle");
+	ReadClips();
 	playerModel->CreateTexture();
 	playerModel->PlayClip(0);
 	playerModel->Load();
 	playerModel->SetParent(this);
-
-	SetState(PlayerState::DEFAULTIDLE);
+	
 	curHp = maxHp;
 	CAM->SetTarget(this);
 	CAM->TargetOptionLoad("ShootingView");
@@ -92,6 +93,11 @@ void SurvivalPlayer::Rotate()
 	localRotation.y = angle;
 }
 
+void SurvivalPlayer::ReadClips()
+{
+	playerModel->ReadClip("rifleidle");
+}
+
 void SurvivalPlayer::GetInvincible()
 {
 	if (!isInvincible) return;
@@ -102,9 +108,17 @@ void SurvivalPlayer::GetInvincible()
 		isInvincible = false;
 }
 
-void SurvivalPlayer::SetState(PlayerState curState)
+void SurvivalPlayer::SetAction()
 {
-	this->curState = curState;
+
+}
+
+void SurvivalPlayer::SetState(PlayerState state)
+{
+	if (curState == state) return;
+
+	curState = state;
+	playerModel->PlayClip(state);
 }
 
 void SurvivalPlayer::CreateBullet()
