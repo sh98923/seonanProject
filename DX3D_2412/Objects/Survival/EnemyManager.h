@@ -26,7 +26,7 @@ private:
 	void Spawning();
 
 private:
-	ModelInstancing* enemyModel;
+	ModelAnimatorInstancing* enemyModel;
 	vector<Enemy*> enemies;
 
 	float spawnInterval = 0.0f;

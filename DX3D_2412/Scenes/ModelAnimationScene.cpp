@@ -3,13 +3,13 @@
 
 ModelAnimationScene::ModelAnimationScene()
 {
-	model = new ModelAnimator("myplayer");	
+	model = new ModelAnimator("zombie");	
 	model->Load();
 	model->SetShader(L"Model/Model.hlsl");
 	//FOR(1)
 	//	model->ReadClip("run", i);
 	//model->ReadClip("Idle");
-	model->ReadClip("rifleidle");
+	model->ReadClip("dying");
 	//model->ReadClip("Attack");
 	model->CreateTexture();
 }

@@ -2,29 +2,34 @@
 
 EnemyManager::EnemyManager()
 {
-	enemyModel = new ModelInstancing("Zombie", enemyCount);
+	enemyModel = new ModelAnimatorInstancing("Zombie");
 	
-	enemies.reserve(enemyCount);
+	enemyModel->ReadClip("running");
+	enemyModel->CreateTexture();
 
+	enemies.reserve(enemyCount);
+	
 	FOR(enemyCount)
 	{
 		Enemy* enemy = new Enemy(enemyModel->Add());
 		enemy->SetActive(false);
 		
 		enemies.push_back(enemy);
+
+		//enemies[i] = new Enemy(enemyModel->Add(), enemyModel, i);
 	}
 }
 
 EnemyManager::~EnemyManager()
 {
 	delete enemyModel;
+
+	for (Enemy* enemy : enemies)
+		delete enemy;
 }
 
 void EnemyManager::Update()
 {
-	for (Enemy* enemy : enemies)
-		enemy->Update();
-
 	spawnInterval += DELTA;
 
 	if (spawnInterval > SPAWN_TIMER)
@@ -34,14 +39,17 @@ void EnemyManager::Update()
 	}
 
 	enemyModel->Update();
+
+	for (Enemy* enemy : enemies)
+		enemy->Update();
 }
 
 void EnemyManager::Render()
 {
+	enemyModel->Render();
+
 	for (Enemy* enemy : enemies)
 		enemy->Render();
-
-	enemyModel->Render();
 }
 
 void EnemyManager::Edit()

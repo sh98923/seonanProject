@@ -1,20 +1,13 @@
 #include "Framework.h"
 
 Enemy::Enemy(Transform* transform)
-	
 {
-	SetTag(transform->GetTag() + "_Collider");
-	transform->SetParent(this);
 	transform->SetTag("Enemy");
+	transform->SetParent(this);
 	transform->Load();
 
-	//model = new ModelAnimator("zombie");
-	//model->ReadClip("running");
-	//model->CreateTexture();
-	//model->PlayClip(0);
-	//model->Load();
-	//model->SetParent(this);
-}
+	//ReadClips();
+} 
 
 Enemy::~Enemy()
 {
@@ -40,6 +33,15 @@ void Enemy::Render()
 	//model->Render();
 }
 
+void Enemy::ReadClips()
+{
+	model->ReadClip("running");
+	model->ReadClip("dying");
+	model->CreateTexture();
+
+	model->GetClip(RUNNING)->SetEvent(bind(&Enemy::isDead, this), 0.1f);
+}
+
 void Enemy::Spawn()
 {
 	curHp = maxHp;
@@ -50,12 +52,22 @@ void Enemy::Spawn()
 
 void Enemy::Trace()
 {
-	if (IsActive())
+	if(IsActive())
 	{
 		Vector3 dir = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
 		Translate(dir * moveSpeed * DELTA);
 		localRotation.y = atan2(dir.x, dir.z);
+
+		//if (IsCollision(player))
+		//	moveSpeed = 0;
+		//if (!IsCollision(player))
+		//{
+		//	Vector3 dir = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
+		//	Translate(dir * moveSpeed * DELTA);
+		//	localRotation.y = atan2(dir.x, dir.z);
+		//}
 	}
+	
 }
 
 void Enemy::GetDamaged()

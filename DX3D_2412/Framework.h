@@ -131,6 +131,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Framework/Model/ModelInstancing.h"
 #include "Framework/Model/ModelClip.h"
 #include "Framework/Model/ModelAnimator.h"
+#include "Framework/Model/ModelAnimatorInstancing.h"
 
 //GameObject Head
 #include "Objects/Basic/GameObject.h"

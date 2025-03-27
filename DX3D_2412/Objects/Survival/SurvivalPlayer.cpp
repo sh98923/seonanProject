@@ -76,7 +76,6 @@ void SurvivalPlayer::Control()
 void SurvivalPlayer::Move()
 {
 	//if (curState == MOVEFIRE) return;
-
 	Translate(velocity * moveSpeed * DELTA);
 }
 
@@ -107,8 +106,9 @@ void SurvivalPlayer::ReturnToIdle()
 
 void SurvivalPlayer::ReadClips()
 {
-	playerModel->ReadClip("rifleidle");
+	playerModel->ReadClip("aimingidle");
 	playerModel->ReadClip("walking");
+	playerModel->ReadClip("rifleidle");
 	playerModel->CreateTexture();
 
 	playerModel->GetClip(SURVIVALMOVE)->SetEvent(bind(&SurvivalPlayer::Fire, this), 0.1f);
