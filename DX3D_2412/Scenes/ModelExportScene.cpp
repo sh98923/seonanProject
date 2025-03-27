@@ -3,22 +3,22 @@
 
 ModelExportScene::ModelExportScene()
 {
-    string name = "myplayer";
-    //string extension = "fbx";
-    //string file = "Resources/Models/FBX/" + name + "." + extension;
+    string name = "rifle";
+    string extension = "fbx";
+    string file = "Resources/Models/FBX/" + name + "." + extension;
 
-    //exporter = new ModelExporter(name, file);
-    //exporter->ExportMaterial();
-    //exporter->ExportMesh();
-    //delete exporter;
+    exporter = new ModelExporter(name, file);
+    exporter->ExportMaterial();
+    exporter->ExportMesh();
+    delete exporter;
 
-    string clipName = "rifleidle";
-    string file = "Resources/Models/Animations/" + name + "/" + clipName + ".fbx";    
+    //string clipName = "rifle";
+    //file = "Resources/Models/Animations/" + name + "/" + clipName + ".fbx";    
     //file = "Resources/Models/Animations/Survival" + clipName + "/" + ".fbx";
     
-    exporter = new ModelExporter(name, file);
-    exporter->ExportClip(clipName);
-    delete exporter;
+    //exporter = new ModelExporter(name, file);
+    //exporter->ExportClip(clipName);
+    //delete exporter;
     //
     //clipName = "Run";
     //file = "Resources/Models/Animations/" + name + "/" + clipName + ".fbx";

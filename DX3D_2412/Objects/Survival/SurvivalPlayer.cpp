@@ -6,11 +6,11 @@ SurvivalPlayer::SurvivalPlayer()
 	Load();
 
 	playerModel = new ModelAnimator("myPlayer");
-	ReadClips();
-	playerModel->CreateTexture();
-	playerModel->PlayClip(0);
 	playerModel->Load();
 	playerModel->SetParent(this);
+	playerModel->SetLocalPosition(0, -1, 0);
+
+	ReadClips();
 	
 	curHp = maxHp;
 	CAM->SetTarget(this);
@@ -21,6 +21,7 @@ SurvivalPlayer::SurvivalPlayer()
 
 SurvivalPlayer::~SurvivalPlayer()
 {
+	delete playerModel;
 	BulletManager::Delete();
 }
 
@@ -30,6 +31,7 @@ void SurvivalPlayer::Update()
 	Move();
 	Fire();
 	Rotate();
+	SetAction();
 	GetInvincible();
 	ObtainMoney(credit);
 	//GetDamagedFromEnemy(enemy);
@@ -52,6 +54,8 @@ void SurvivalPlayer::PostRender()
 
 void SurvivalPlayer::Control()
 {
+	//if (curState == MOVEFIRE) return;
+	
 	Vector3 dir;
 
 	if (KEY->Press('W'))
@@ -71,6 +75,8 @@ void SurvivalPlayer::Control()
 
 void SurvivalPlayer::Move()
 {
+	//if (curState == MOVEFIRE) return;
+
 	Translate(velocity * moveSpeed * DELTA);
 }
 
@@ -78,6 +84,7 @@ void SurvivalPlayer::Fire()
 {
 	if (KEY->Down(VK_LBUTTON))
 	{
+		SetState(SURVIVALMOVE);
 		BulletManager::Get()->Fire(localPosition, GetForward());
 	}
 }
@@ -93,24 +100,26 @@ void SurvivalPlayer::Rotate()
 	localRotation.y = angle;
 }
 
+void SurvivalPlayer::ReturnToIdle()
+{
+	SetState(SURVIVALIDLE);
+}
+
 void SurvivalPlayer::ReadClips()
 {
 	playerModel->ReadClip("rifleidle");
-}
+	playerModel->ReadClip("walking");
+	playerModel->CreateTexture();
 
-void SurvivalPlayer::GetInvincible()
-{
-	if (!isInvincible) return;
-
-	hitTime += DELTA;
-	
-	if (hitTime >= HIT_INTERVAL)
-		isInvincible = false;
+	playerModel->GetClip(SURVIVALMOVE)->SetEvent(bind(&SurvivalPlayer::Fire, this), 0.1f);
+	playerModel->GetClip(SURVIVALMOVE)->SetEvent(bind(&SurvivalPlayer::ReturnToIdle, this), 0.3f);
 }
 
 void SurvivalPlayer::SetAction()
 {
+	if (curState == SURVIVALMOVE) return;
 
+	else SetState(SURVIVALIDLE);
 }
 
 void SurvivalPlayer::SetState(PlayerState state)
@@ -119,6 +128,16 @@ void SurvivalPlayer::SetState(PlayerState state)
 
 	curState = state;
 	playerModel->PlayClip(state);
+}
+
+void SurvivalPlayer::GetInvincible()
+{
+	if (!isInvincible) return;
+
+	hitTime += DELTA;
+
+	if (hitTime >= HIT_INTERVAL)
+		isInvincible = false;
 }
 
 void SurvivalPlayer::CreateBullet()

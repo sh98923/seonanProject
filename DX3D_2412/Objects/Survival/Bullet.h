@@ -18,7 +18,7 @@ public:
 private:
 	Transform* transform;
 
-	float speed = 8.0f;
+	float speed = 15.0f;
 	Vector3 velocity;
 	float lifeTime = 0.0f;
 };

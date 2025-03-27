@@ -6,7 +6,9 @@ class SurvivalPlayer : public CapsuleCollider
 {
 	enum PlayerState
 	{
-		DEFAULTIDLE, SURVIVEIDLE, MOVEFIRE, NONE
+		SURVIVALIDLE, SURVIVALMOVE, GEARCHECKIDLE, GEARCHECKMOVE, NONE
+		//aimingidle, walking, rifleidle
+		// 전투씬 기본 , 움직이면서 사격 , 상점 기본 , 기본 이동
 	};
 
 private:
@@ -33,12 +35,14 @@ private:
 	void Fire();
 	void Rotate();
 
-	void ReadClips();
+	void ReturnToIdle();
 
-	void GetInvincible();
+	void ReadClips();
 
 	void SetAction();
 	void SetState(PlayerState state);
+
+	void GetInvincible();
 
 	void CreateBullet();
 
@@ -48,12 +52,12 @@ private:
 	Enemy* enemy;
 	Credit* credit;
 
-	PlayerState curState = DEFAULTIDLE;
+	PlayerState curState = SURVIVALIDLE;
 
 	Vector3 velocity;
 
 	int maxHp = 10;
-	float moveSpeed = 7.0f;
+	float moveSpeed = 5.0f;
 	float rotSpeed = 1.0f;
 	float hitTime = 0.0f;
 

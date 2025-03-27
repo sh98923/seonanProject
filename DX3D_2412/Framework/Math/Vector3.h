@@ -85,6 +85,8 @@ public:
 	Vector3 GetNormalized() const { return XMVector3Normalize(value); }
 	void Normalize() { value = XMVector3Normalize(value); }
 
+	float Length() const { return XMVectorGetX(XMVector3Length(value)); }
+
 	float Magnitude() const { return XMVectorGetX(XMVector3Length(value)); }
 
 public:
