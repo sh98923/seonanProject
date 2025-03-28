@@ -28,7 +28,7 @@ struct PixelInput
 LightPixelInput VS(VertexInput input)
 {
     LightPixelInput output;
-    matrix transform = SkinWorld(input.index, input.indices);
+    matrix transform = SkinWorld(input.index, input.indices, input.weights);
     transform = mul(transform, input.transform);
 	
     output.pos = mul(input.pos, transform);
