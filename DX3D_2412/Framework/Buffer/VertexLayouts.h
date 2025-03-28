@@ -15,7 +15,7 @@ struct VertexColor
 {
     Float3 pos;
     Float4 color;
-        
+
     VertexColor(float x = 0.0f, float y = 0.0f, float z = 0.0f,
         float r = 1.0f, float g = 1.0f, float b = 1.0f)
         : pos(x, y, z), color(r, g, b, 1)
@@ -59,6 +59,18 @@ struct VertexUVNormalTangent
     VertexUVNormalTangent() = default;
     VertexUVNormalTangent(float x, float y, float z, float u, float v)
         : pos(x, y, z), uv(u, v)
+    {
+    }
+};
+
+struct VertexUVNormalAlpha
+{
+    Float3 pos = {};
+    Float2 uv = {};
+    Float3 normal = {};
+    float alpha[3] = {};
+
+    VertexUVNormalAlpha()
     {
     }
 };

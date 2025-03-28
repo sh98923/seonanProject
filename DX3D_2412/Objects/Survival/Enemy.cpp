@@ -2,9 +2,15 @@
 
 Enemy::Enemy(Transform* transform)
 {
-	transform->SetTag("Enemy");
+	SetTag(transform->GetTag() + "_Collider");
+
 	transform->SetParent(this);
-	transform->Load();
+	transform->SetLocalPosition(0, -1, 0);
+	transform->SetLocalScale(0.01f, 0.01f, 0.01f);
+	transform->SetLocalRotation(0, XM_PI, 0);
+
+	transform->SetTag("Enemy");
+	Load();
 
 	//ReadClips();
 } 

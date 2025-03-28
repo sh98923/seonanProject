@@ -18,6 +18,6 @@ private:
 	Transform* transform;
 	SurvivalPlayer* player = nullptr;
 
-	float pickUpSpeed = 10.0f;
+	float pickUpSpeed = 15.0f;
 	float pickUpRange = 10.0f;
 };

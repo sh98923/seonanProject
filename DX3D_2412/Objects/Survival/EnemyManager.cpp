@@ -54,8 +54,8 @@ void EnemyManager::Render()
 
 void EnemyManager::Edit()
 {
-	//for (Enemy* enemy : enemies)
-	//	enemy->Edit();
+	for (Enemy* enemy : enemies)
+		enemy->Edit();
 
 	enemyModel->Edit();
 }

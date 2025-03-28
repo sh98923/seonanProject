@@ -12,6 +12,8 @@ SurvivalScene::SurvivalScene()
 	CreditManager::Get()->GetPlayer(player);
 	//TreeManager::Get()->MakeSpace();
 
+	skybox = new Skybox(L"Resources/Textures/Landscape/Snow_ENV.dds");
+
 	plane = new Plane(Vector2(70, 70), 2, 2);
 	plane->SetLocalPosition(-35, 0, -35);
 	plane->UpdateWorld();
@@ -44,6 +46,7 @@ void SurvivalScene::PreRender()
 
 void SurvivalScene::Render()
 {
+	skybox->Render();
 	TreeManager::Get()->Render();
 	EnemyManager::Get()->Render();
 	CreditManager::Get()->Render();

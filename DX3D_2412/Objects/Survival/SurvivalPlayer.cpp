@@ -112,12 +112,15 @@ void SurvivalPlayer::ReadClips()
 	playerModel->CreateTexture();
 
 	playerModel->GetClip(SURVIVALMOVE)->SetEvent(bind(&SurvivalPlayer::Fire, this), 0.1f);
-	playerModel->GetClip(SURVIVALMOVE)->SetEvent(bind(&SurvivalPlayer::ReturnToIdle, this), 0.3f);
+	//playerModel->GetClip(SURVIVALMOVE)->SetEvent(bind(&SurvivalPlayer::ReturnToIdle, this), 0.3f);
 }
 
 void SurvivalPlayer::SetAction()
 {
-	if (curState == SURVIVALMOVE) return;
+	//if (curState == SURVIVALMOVE) return;
+
+	if (velocity.x != 0 || velocity.z != 0)
+		SetState(SURVIVALMOVE);
 
 	else SetState(SURVIVALIDLE);
 }
