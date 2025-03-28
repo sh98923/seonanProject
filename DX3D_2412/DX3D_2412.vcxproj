@@ -226,6 +226,7 @@
     <ClInclude Include="Scenes\LightScene.h" />
     <ClInclude Include="Scenes\MineCraftScene.h" />
     <ClInclude Include="Scenes\ModelAnimationScene.h" />
+    <ClInclude Include="Scenes\ModelEquipScene.h" />
     <ClInclude Include="Scenes\ModelExportScene.h" />
     <ClInclude Include="Scenes\ModelInstancingScene.h" />
     <ClInclude Include="Scenes\ModelRenderScene.h" />
@@ -317,6 +318,7 @@
     <ClCompile Include="Scenes\LightScene.cpp" />
     <ClCompile Include="Scenes\MineCraftScene.cpp" />
     <ClCompile Include="Scenes\ModelAnimationScene.cpp" />
+    <ClCompile Include="Scenes\ModelEquipScene.cpp" />
     <ClCompile Include="Scenes\ModelExportScene.cpp" />
     <ClCompile Include="Scenes\ModelInstancingScene.cpp" />
     <ClCompile Include="Scenes\ModelRenderScene.cpp" />

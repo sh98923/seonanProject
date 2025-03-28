@@ -16,6 +16,7 @@
 #include "Scenes/InstancingScene.h"
 #include "Scenes/ModelInstancingScene.h"
 #include "Scenes/ModelAnimationScene.h"
+#include "Scenes/ModelEquipScene.h"
 
 GameManager::GameManager()
 {
@@ -34,6 +35,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new InstancingScene());
 	//SCENE->Create("Start", new ModelInstancingScene());
 	//SCENE->Create("Start", new ModelAnimationScene());
+	//SCENE->Create("Start", new ModelEquipScene());
 	
 
 	SCENE->Add("Grid");

@@ -8,7 +8,7 @@ Bullet::Bullet(Transform* transform)
 
 	transform->SetLocalScale(0.03f, 0.03f, 0.03f);
 	transform->SetLocalRotation(XM_PIDIV2, 0, 0);
-	transform->SetLocalPosition(0, 1.0f, 0);
+	transform->SetLocalPosition(0, 1.0f, 1.8f);
 	
 	transform->SetTag("bullet_0");
 	transform->Load();

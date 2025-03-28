@@ -5,9 +5,7 @@ SurvivalScene::SurvivalScene()
 {
 	player = new SurvivalPlayer();
 	player->SetLocalPosition(0, 2, 0);
-	//enemy = new Enemy();
-	//enemy->Spawn();
-	//enemy->SetPlayer(player);
+
 	EnemyManager::Get()->GetPlayer(player);
 	CreditManager::Get()->GetPlayer(player);
 	//TreeManager::Get()->MakeSpace();
@@ -34,7 +32,7 @@ SurvivalScene::~SurvivalScene()
 void SurvivalScene::Update()
 {
 	TreeManager::Get()->Update();
-	EnemyManager::Get()->Update();
+	//EnemyManager::Get()->Update();
 	CreditManager::Get()->Update();
 	player->Update();
 	//enemy->Update();
@@ -48,7 +46,7 @@ void SurvivalScene::Render()
 {
 	skybox->Render();
 	TreeManager::Get()->Render();
-	EnemyManager::Get()->Render();
+	//EnemyManager::Get()->Render();
 	CreditManager::Get()->Render();
 	player->Render();
 	//enemy->Render();
@@ -68,6 +66,6 @@ void SurvivalScene::GUIRender()
 {
 	player->Edit();
 	//EnemyManager::Get()->Edit();
-	//BulletManager::Get()->Edit();
-	TreeManager::Get()->Edit();
+	BulletManager::Get()->Edit();
+	//TreeManager::Get()->Edit();
 }

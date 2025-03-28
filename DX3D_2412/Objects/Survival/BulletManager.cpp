@@ -9,6 +9,7 @@ BulletManager::BulletManager()
 	FOR(SIZE)
 	{
 		Bullet* bullet = new Bullet(bulletModel->Add());
+		
 		bullet->SetActive(false);
 
 		bullets.push_back(bullet);
@@ -30,18 +31,18 @@ void BulletManager::Update()
 
 void BulletManager::Render()
 {
+	bulletModel->Render();
+
 	for (Bullet* bullet : bullets)
 		bullet->Render();
-
-	bulletModel->Render();
 }
 
 void BulletManager::Edit()
 {
-	for (Bullet* bullet : bullets)
-		bullet->Edit();
+	//for (Bullet* bullet : bullets)
+	//	bullet->Edit();
 
-	//bulletModel->Edit();
+	bulletModel->Edit();
 }
 
 void BulletManager::Fire(Vector3 pos, Vector3 direction)

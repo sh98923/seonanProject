@@ -3,9 +3,10 @@
 class CreditManager : public Singleton<CreditManager>
 {
 private:
-	friend class Singleton;
-
 	const int POOL_SIZE = 1000;
+
+private:
+	friend class Singleton;
 
 	CreditManager();
 	~CreditManager();

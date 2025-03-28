@@ -12,6 +12,12 @@ SurvivalPlayer::SurvivalPlayer()
 
 	ReadClips();
 	
+	weapon = new Model("rifle");
+	weapon->Load();
+
+	weaponSocket = new Transform();
+	weapon->SetParent(weaponSocket);
+
 	curHp = maxHp;
 	CAM->SetTarget(this);
 	CAM->TargetOptionLoad("ShootingView");
@@ -22,6 +28,7 @@ SurvivalPlayer::SurvivalPlayer()
 SurvivalPlayer::~SurvivalPlayer()
 {
 	delete playerModel;
+	delete weapon;
 	BulletManager::Delete();
 }
 
@@ -36,7 +43,10 @@ void SurvivalPlayer::Update()
 	ObtainMoney(credit);
 	//GetDamagedFromEnemy(enemy);
 
+	weaponSocket->SetWorld(playerModel->GetTransformByNode(31));
+
 	UpdateWorld();
+	weapon->UpdateWorld();
 	playerModel->Update();
 	BulletManager::Get()->Update();
 }
@@ -44,6 +54,7 @@ void SurvivalPlayer::Update()
 void SurvivalPlayer::Render()
 {
 	playerModel->Render();
+	weapon->Render();
 	CapsuleCollider::Render();
 	BulletManager::Get()->Render();
 }

@@ -49,6 +49,8 @@ private:
 private:
 	Transform* transform;
 	ModelAnimator* playerModel;
+	Model* weapon;
+	Transform* weaponSocket;
 	Enemy* enemy;
 	Credit* credit;
 
