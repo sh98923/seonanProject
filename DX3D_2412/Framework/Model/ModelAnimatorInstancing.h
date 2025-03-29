@@ -33,6 +33,7 @@ public:
     Transform* Add();
 
     void PlayClip(UINT instanceIndex, int clip, float scale = 1.0f, float takeTime = 0.1f);
+    bool IsSameClip(UINT instanceIndex, int clip);
 
     Motion* GetMotion(UINT instanceIndex)
     {

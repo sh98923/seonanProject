@@ -12,7 +12,7 @@ Enemy::Enemy(Transform* transform)
 	transform->SetTag("Enemy");
 	Load();
 
-	//ReadClips();
+	//EnemyManager::Get()->GetEnemyModel()->GetClip(1)->SetEvent(bind(&Enemy::EnemyDead,this),0.9f);
 } 
 
 Enemy::~Enemy()
@@ -39,14 +39,35 @@ void Enemy::Render()
 	//model->Render();
 }
 
-void Enemy::ReadClips()
+void Enemy::EnemyDead()
 {
-	model->ReadClip("running");
-	model->ReadClip("dying");
-	model->CreateTexture();
-
-	model->GetClip(RUNNING)->SetEvent(bind(&Enemy::isDead, this), 0.1f);
+	SetActive(false);
 }
+
+//void Enemy::ReadClips()
+//{
+//	model->ReadClip("running");
+//	model->ReadClip("dying");
+//	model->CreateTexture();
+//
+//	model->GetClip(RUNNING)->SetEvent(bind(&Enemy::isDead, this), 0.1f);
+//}
+
+//void Enemy::SetState(EnemyState state)
+//{
+//	curState == state;
+//	model->PlayClip(state);
+//}
+//
+//void Enemy::IsDead()
+//{
+//	SetState(DYING);
+//}
+//
+//void Enemy::PlayDying()
+//{
+//	model->GetClip(DYING)->SetEvent(bind(&Enemy::isDead, this), 0.1f);
+//}
 
 void Enemy::Spawn()
 {
@@ -100,8 +121,8 @@ void Enemy::GetDamaged()
 		else if (curHp == 0)
 		{
 			CreditManager::Get()->SpawnCredit(GetGlobalPosition());
-			SetActive(false);
-			curHp = maxHp;
+			
+			//curHp = maxHp;
 		}
 	}
 }

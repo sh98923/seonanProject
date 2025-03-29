@@ -5,7 +5,10 @@ EnemyManager::EnemyManager()
 	enemyModel = new ModelAnimatorInstancing("Zombie");
 	
 	enemyModel->ReadClip("running");
+	enemyModel->ReadClip("dying");
 	enemyModel->CreateTexture();
+
+	//enemyModel->GetClip(DIE)->SetEvent(bind(&Enemy::EnemyDead, this), 0.9f);
 
 	enemies.reserve(enemyCount);
 	
@@ -15,8 +18,6 @@ EnemyManager::EnemyManager()
 		enemy->SetActive(false);
 		
 		enemies.push_back(enemy);
-
-		//enemies[i] = new Enemy(enemyModel->Add(), enemyModel, i);
 	}
 }
 
@@ -38,6 +39,7 @@ void EnemyManager::Update()
 		spawnInterval -= SPAWN_TIMER;
 	}
 
+	PlayDying();
 	enemyModel->Update();
 
 	for (Enemy* enemy : enemies)
@@ -58,6 +60,21 @@ void EnemyManager::Edit()
 		enemy->Edit();
 
 	enemyModel->Edit();
+}
+
+void EnemyManager::PlayDying()
+{
+	for( int i = 0; i < enemyCount; i++)
+	{
+		if(enemies[i]->IsActive() && enemies[i]->curHp <= 0)
+		{
+			if (enemyModel->IsSameClip(i, DIE))
+				continue;
+
+			enemyModel->PlayClip(i, DIE);			
+			
+		}
+	}
 }
 
 void EnemyManager::GetPlayer(SurvivalPlayer* player)

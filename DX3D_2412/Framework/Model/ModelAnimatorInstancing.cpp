@@ -78,3 +78,24 @@ void ModelAnimatorInstancing::PlayClip(UINT instanceIndex, int clip, float scale
     frameInstancingBuffer->GetData()->motions[instanceIndex].playTime
         = modelClip->frameCount / modelClip->tickPerSecond;
 }
+
+bool ModelAnimatorInstancing::IsSameClip(UINT instanceIndex, int clip)
+{
+    if (frameInstancingBuffer->GetData()->motions[instanceIndex].cur.clip == clip)
+        return true;
+    else
+        return false;
+}
+
+//void ModelAnimatorInstancing::PlayClip(int clip, float scale, float duration)
+//{
+//    isPlay = true;
+//
+//    frameBuffer->GetData()->next.clip = clip;
+//    frameBuffer->GetData()->next.scale = scale;
+//    frameBuffer->GetData()->duration = duration;
+//
+//    clips[clip]->Init();
+//}
+
+

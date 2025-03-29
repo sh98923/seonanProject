@@ -19,21 +19,24 @@ public:
 	void Render();
 
 	void ReadClips();
+	void SetState(EnemyState state);
+	void EnemyDead();
+	//void PlayDying();
 
 	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
+
+	//void GetHp() { return this->curHp; }
 
 	void Spawn();
 	void Trace();
 	void GetDamaged();
-
-	bool isDead() { return curHp <= 0;}
 
 public:
 	int curHp;
 
 private:
 	Transform* transform;
-	ModelAnimatorInstancing* model;
+	//ModelAnimatorInstancing* model;
 	SurvivalPlayer* player = nullptr;
 
 	//UINT index;
@@ -47,5 +50,4 @@ private:
 	Vector3 velocity;
 	
 	int maxHp = 5;
-	
 };

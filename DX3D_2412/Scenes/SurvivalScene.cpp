@@ -32,7 +32,7 @@ SurvivalScene::~SurvivalScene()
 void SurvivalScene::Update()
 {
 	TreeManager::Get()->Update();
-	//EnemyManager::Get()->Update();
+	EnemyManager::Get()->Update();
 	CreditManager::Get()->Update();
 	player->Update();
 	//enemy->Update();
@@ -46,7 +46,7 @@ void SurvivalScene::Render()
 {
 	skybox->Render();
 	TreeManager::Get()->Render();
-	//EnemyManager::Get()->Render();
+	EnemyManager::Get()->Render();
 	CreditManager::Get()->Render();
 	player->Render();
 	//enemy->Render();
