@@ -34,6 +34,7 @@ private:
 	void Move();
 	void Fire();
 	void Rotate();
+	void LimitMove();
 
 	void ReturnToIdle();
 

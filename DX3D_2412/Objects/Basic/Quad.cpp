@@ -41,3 +41,21 @@ Quad::Quad(wstring texture)
 
     mesh->CreateMesh();
 }
+
+void Quad::SetTexture(wstring textureFile)
+{
+    material->SetDiffuseMap(textureFile);
+
+    //Vector2 size = material->GetDiffuseMap()->GetSize();
+    //localScale = { size.x, size.y };
+
+    size = material->GetDiffuseMap()->GetSize();
+
+    vector<VertexUV>& vertices = mesh->GetVertices();
+    vertices[0] = VertexUV(-0.5f * size.x, +0.5f * size.y, 0.0f, 0, 0);//0
+    vertices[1] = VertexUV(+0.5f * size.x, +0.5f * size.y, 0.0f, 1, 0);//1
+    vertices[2] = VertexUV(-0.5f * size.x, -0.5f * size.y, 0.0f, 0, 1);//2
+    vertices[3] = VertexUV(+0.5f * size.x, -0.5f * size.y, 0.0f, 1, 1);//3    
+
+    mesh->UpdateVertices();
+}

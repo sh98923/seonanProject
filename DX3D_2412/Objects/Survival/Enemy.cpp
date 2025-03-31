@@ -73,8 +73,8 @@ void Enemy::Spawn()
 {
 	curHp = maxHp;
 	SetColor(0, 1, 0);
+	SetLocalPosition(GameMath::Random(Vector3(-20.0f, 2.0f, -20.0f), Vector3(20.0f, 2.0f, 20.0f)));
 	SetActive(true);
-	SetLocalPosition(GameMath::Random(Vector3(-30.0f, 2.0f, -30.0f), Vector3(30.0f, 2.0f, 30.0f)));
 }
 
 void Enemy::Trace()
@@ -121,7 +121,7 @@ void Enemy::GetDamaged()
 		else if (curHp == 0)
 		{
 			CreditManager::Get()->SpawnCredit(GetGlobalPosition());
-			
+			SetActive(false);
 			//curHp = maxHp;
 		}
 	}

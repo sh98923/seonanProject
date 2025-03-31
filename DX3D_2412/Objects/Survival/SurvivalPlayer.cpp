@@ -38,6 +38,7 @@ void SurvivalPlayer::Update()
 	Move();
 	Fire();
 	Rotate();
+	LimitMove();
 	SetAction();
 	GetInvincible();
 	ObtainMoney(credit);
@@ -108,6 +109,25 @@ void SurvivalPlayer::Rotate()
 	float angle = atan2(direction.x, direction.y);
 
 	localRotation.y = angle;
+}
+
+void SurvivalPlayer::LimitMove()
+{
+	Vector3 pos = GetLocalPosition();
+	if (pos.x < -25)
+		pos.x = -25;
+	else if (pos.x > 25)
+		pos.x = 25;
+
+	if (pos.z > 25)
+		pos.z = 25;
+	else if (pos.z < -25)
+		pos.z = -25;
+
+	//pos.x = (pos.x < -30) ? -30 : pos.x;
+	//pos.z = (pos.z < -30) ? -30 : pos.z;
+
+	SetLocalPosition(pos);
 }
 
 void SurvivalPlayer::ReturnToIdle()
