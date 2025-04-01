@@ -3,7 +3,7 @@
 
 ModelRenderScene::ModelRenderScene()
 {
-	model = new Model("rifle");
+	model = new Model("smgbullet");
 	//model->SetShader(L"Model/Model.hlsl");
 }
 

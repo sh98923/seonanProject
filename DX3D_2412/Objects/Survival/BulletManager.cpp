@@ -2,7 +2,7 @@
 
 BulletManager::BulletManager()
 {
-	bulletModel = new ModelInstancing("bullet", SIZE);
+	bulletModel = new ModelInstancing("smgbullet", SIZE);
 
 	bullets.reserve(SIZE);
 

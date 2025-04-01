@@ -8,7 +8,6 @@ public:
 
 	void Update();
 	void Render();
-	void CollidedWithPlayer();
 
 	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
 

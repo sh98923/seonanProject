@@ -89,7 +89,7 @@ class LightBuffer : public ConstBuffer
 public:
     struct Light
     {
-        Float4 color = { 1, 1, 1, 1 };
+        Float4 color = { 0.4, 0.4, 0.4, 1 };
 
         Float3 direction = { 0, -1, 1 };
         float attentionIntensity = 1.0f;

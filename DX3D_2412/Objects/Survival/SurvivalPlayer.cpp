@@ -114,6 +114,7 @@ void SurvivalPlayer::Rotate()
 void SurvivalPlayer::LimitMove()
 {
 	Vector3 pos = GetLocalPosition();
+
 	if (pos.x < -25)
 		pos.x = -25;
 	else if (pos.x > 25)
@@ -123,9 +124,6 @@ void SurvivalPlayer::LimitMove()
 		pos.z = 25;
 	else if (pos.z < -25)
 		pos.z = -25;
-
-	//pos.x = (pos.x < -30) ? -30 : pos.x;
-	//pos.z = (pos.z < -30) ? -30 : pos.z;
 
 	SetLocalPosition(pos);
 }
@@ -183,7 +181,7 @@ void SurvivalPlayer::GetDamagedFromEnemy(Collider* collider)
 {
 	if (collider == nullptr) return;
 	if (isInvincible) return;
-
+	
 	if (this->IsCollision(collider))
 	{
 		isInvincible = true;

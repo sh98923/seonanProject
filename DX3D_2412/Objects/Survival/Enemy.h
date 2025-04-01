@@ -46,8 +46,8 @@ private:
 	Bullet* bullet;
 	Credit* credit;
 
-	float moveSpeed = 3.0f;
+	float moveSpeed = 4.0f;
 	Vector3 velocity;
 	
-	int maxHp = 5;
+	int maxHp = 3;
 };

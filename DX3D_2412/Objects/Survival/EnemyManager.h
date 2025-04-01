@@ -10,7 +10,7 @@ public:
 
 private:
 	UINT enemyCount = 50;
-	const float SPAWN_TIMER = 3.0f;
+	const float SPAWN_TIMER = 1.5f;
 
 private:
 	friend class Singleton;

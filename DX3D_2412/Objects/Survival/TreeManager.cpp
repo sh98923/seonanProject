@@ -2,7 +2,7 @@
 
 TreeManager::TreeManager()
 {
-	treeModel = new ModelInstancing("pinetree", treeSize);
+	treeModel = new ModelInstancing("pinetreegroup", treeSize);
 
 	trees.reserve(treeSize);
 
@@ -45,7 +45,7 @@ void TreeManager::Edit()
 	treeModel->Edit();
 }
 
-void TreeManager::MakeSpace()
+void TreeManager::Make()
 {
 	for (Tree* tree : trees)
 		tree->SetActive(true);

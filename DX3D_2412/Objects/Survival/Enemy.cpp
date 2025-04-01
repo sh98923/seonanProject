@@ -73,7 +73,7 @@ void Enemy::Spawn()
 {
 	curHp = maxHp;
 	SetColor(0, 1, 0);
-	SetLocalPosition(GameMath::Random(Vector3(-20.0f, 2.0f, -20.0f), Vector3(20.0f, 2.0f, 20.0f)));
+	SetLocalPosition(GameMath::Random(Vector3(-24.0f, 2.0f, -24.0f), Vector3(24.0f, 2.0f, 24.0f)));
 	SetActive(true);
 }
 
@@ -102,15 +102,7 @@ void Enemy::GetDamaged()
 	if (BulletManager::Get()->IsCollisionWithEnemy(this))
 	{
 		curHp--;
-		if (curHp == 4)
-		{
-			SetColor(1, 0, 0);
-		}
-		else if (curHp == 3)
-		{
-			SetColor(0, 0, 1);
-		}
-		else if (curHp == 2)
+		if (curHp == 2)
 		{
 			SetColor(0, 0, 0);
 		}

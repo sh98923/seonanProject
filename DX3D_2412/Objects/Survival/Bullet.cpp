@@ -5,10 +5,11 @@ Bullet::Bullet(Transform* transform)
 {
 	SetTag(transform->GetTag() + "_Collider");
 	transform->SetParent(this);
-
-	transform->SetLocalScale(0.03f, 0.03f, 0.03f);
-	transform->SetLocalRotation(XM_PIDIV2, 0, 0);
-	transform->SetLocalPosition(0, 1.0f, 1.8f);
+	
+	transform->SetLocalScale(15, 15, 15);
+	transform->SetLocalRotation(0, 0, 0);
+	//transform->SetLocalPosition(0, 1, 1.8f);
+	transform->SetLocalPosition(this->localPosition);
 	
 	transform->SetTag("bullet_0");
 	transform->Load();

@@ -17,7 +17,6 @@ private:
 	Bullet* bullet;
 	SurvivalPlayer* player;
 	Tree* tree;
-	Skybox* skybox;
 
 	Plane* plane;
 };

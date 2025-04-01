@@ -39,7 +39,7 @@ void EnemyManager::Update()
 		spawnInterval -= SPAWN_TIMER;
 	}
 
-	PlayDying();
+	//PlayDying();
 	enemyModel->Update();
 
 	for (Enemy* enemy : enemies)
@@ -72,7 +72,6 @@ void EnemyManager::PlayDying()
 				continue;
 
 			enemyModel->PlayClip(i, DIE);			
-			
 		}
 	}
 }

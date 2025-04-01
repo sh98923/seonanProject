@@ -3,7 +3,7 @@
 class TreeManager : public Singleton<TreeManager>
 {
 private:
-	UINT treeSize = 10;
+	UINT treeSize = 13;
 
 public:
 	TreeManager();
@@ -13,7 +13,7 @@ public:
 	void Render();
 	void Edit();
 
-	void MakeSpace();
+	void Make();
 
 	void GetPlayer(SurvivalPlayer* player);
 
