@@ -8,8 +8,11 @@ public:
 		RUN, DIE, NONE
 	};
 
-private:
+public:
 	UINT enemyCount = 50;
+	UINT curEnemyCount = 0;
+
+private:
 	const float SPAWN_TIMER = 1.5f;
 
 private:

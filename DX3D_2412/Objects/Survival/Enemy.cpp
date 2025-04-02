@@ -71,6 +71,7 @@ void Enemy::EnemyDead()
 
 void Enemy::Spawn()
 {
+	//curEnemyCount++;
 	curHp = maxHp;
 	SetColor(0, 1, 0);
 	SetLocalPosition(GameMath::Random(Vector3(-24.0f, 2.0f, -24.0f), Vector3(24.0f, 2.0f, 24.0f)));

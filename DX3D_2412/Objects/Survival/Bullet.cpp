@@ -3,6 +3,9 @@
 Bullet::Bullet(Transform* transform)
 	: SphereCollider(0.3f), transform(transform)
 {
+	//collider = new SphereCollider();
+	//collider->SetLocalPosition(0, 1, 1.8f);
+
 	SetTag(transform->GetTag() + "_Collider");
 	transform->SetParent(this);
 	
@@ -10,7 +13,7 @@ Bullet::Bullet(Transform* transform)
 	transform->SetLocalRotation(0, 0, 0);
 	//transform->SetLocalPosition(0, 1, 1.8f);
 	transform->SetLocalPosition(this->localPosition);
-	
+
 	transform->SetTag("bullet_0");
 	transform->Load();
 }
@@ -47,6 +50,7 @@ void Bullet::Edit()
 void Bullet::Fire(Vector3 pos, Vector3 dir)
 {
 	localPosition = pos;
+	//transform->GetLocalPosition() = pos;
 	velocity = dir;
 	lifeTime = 0.0f;
 

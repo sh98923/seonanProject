@@ -7,6 +7,8 @@ public:
 	{
 		RUNNING, DYING, NONE
 	};
+public:
+	//UINT curEnemyCount = 0;
 
 private:
 	const float SPAWN_INTERVAL = 1.0f;

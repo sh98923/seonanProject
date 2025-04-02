@@ -17,6 +17,7 @@ public:
 
 private:
 	Transform* transform;
+	SphereCollider* collider;
 
 	float speed = 15.0f;
 	Vector3 velocity;
