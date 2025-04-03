@@ -32,6 +32,66 @@ PixelShader* Shader::AddPS(wstring file)
     return (PixelShader*)shaders[key];
 }
 
+ComputeShader* Shader::AddCS(wstring file)
+{
+    wstring key = file + L"CS";
+
+    if (shaders.count(key) > 0)
+        return (ComputeShader*)shaders[key];
+
+    wstring path = L"Resources/Shaders/" + file;
+
+    shaders[key] = new ComputeShader(path);
+    shaders[key]->file = file;
+
+    return (ComputeShader*)shaders[key];
+}
+
+GeometryShader* Shader::AddGS(wstring file)
+{
+    wstring key = file + L"GS";
+
+    if (shaders.count(key) > 0)
+        return (GeometryShader*)shaders[key];
+
+    wstring path = L"Resources/Shaders/" + file;
+
+    shaders[key] = new GeometryShader(path);
+    shaders[key]->file = file;
+
+    return (GeometryShader*)shaders[key];
+}
+
+HullShader* Shader::AddHS(wstring file)
+{
+    wstring key = file + L"HS";
+
+    if (shaders.count(key) > 0)
+        return (HullShader*)shaders[key];
+
+    wstring path = L"Resources/Shaders/" + file;
+
+    shaders[key] = new HullShader(path);
+    shaders[key]->file = file;
+
+    return (HullShader*)shaders[key];
+}
+
+DomainShader* Shader::AddDS(wstring file)
+{
+    wstring key = file + L"DS";
+
+    if (shaders.count(key) > 0)
+        return (DomainShader*)shaders[key];
+
+    wstring path = L"Resources/Shaders/" + file;
+
+    shaders[key] = new DomainShader(path);
+    shaders[key]->file = file;
+
+    return (DomainShader*)shaders[key];
+}
+
 void Shader::Delete()
 {
     for (pair<wstring, Shader*> shader : shaders)

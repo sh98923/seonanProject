@@ -105,6 +105,10 @@ typedef function<void(int)> IntParamEvent;
 #include "Framework/Shader/Shader.h"
 #include "Framework/Shader/VertexShader.h"
 #include "Framework/Shader/PixelShader.h"
+#include "Framework/Shader/ComputeShader.h"
+#include "Framework/Shader/GeometryShader.h"
+#include "Framework/Shader/HullShader.h"
+#include "Framework/Shader/DomainShader.h"
 
 #include "Framework/Buffer/VertexBuffer.h"
 #include "Framework/Buffer/IndexBuffer.h"
@@ -153,6 +157,14 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Landscape/Skybox.h"
 
 #include "Objects/Manager/PoolingManager.h"
+
+#include "Objects/Particle/Particle.h"
+#include "Objects/Particle/Spark.h"
+#include "Objects/Particle/Sprite.h"
+#include "Objects/Particle/Rain.h"
+#include "Objects/Particle/Snow.h"
+#include "Objects/Particle/ParticleSystem.h"
+#include "Objects/Particle/Trail.h"
 
 #include "Objects/Survival/SurvivalPlayer.h"
 #include "Objects/Survival/Tree.h"

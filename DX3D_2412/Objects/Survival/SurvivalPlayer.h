@@ -60,7 +60,7 @@ private:
 	Vector3 velocity;
 
 	int maxHp = 10;
-	float moveSpeed = 5.0f;
+	float moveSpeed = 5.3f;
 	float rotSpeed = 1.0f;
 	float hitTime = 0.0f;
 

@@ -13,6 +13,7 @@ public:
 	void Update();
 	void Render();
 	void Edit();
+	void PostRender();
 
 private:
 	void CreateUI();

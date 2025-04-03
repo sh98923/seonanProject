@@ -17,6 +17,7 @@
 #include "Scenes/ModelInstancingScene.h"
 #include "Scenes/ModelAnimationScene.h"
 #include "Scenes/ModelEquipScene.h"
+#include "Scenes/ParticleEditorScene.h"
 
 GameManager::GameManager()
 {
@@ -36,6 +37,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new ModelInstancingScene());
 	//SCENE->Create("Start", new ModelAnimationScene());
 	//SCENE->Create("Start", new ModelEquipScene());
+	//SCENE->Create("Start", new ParticleEditorScene());
 	
 
 	SCENE->Add("Grid");

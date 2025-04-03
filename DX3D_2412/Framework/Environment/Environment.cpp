@@ -18,8 +18,10 @@ Environment::~Environment()
     delete rasterizerState[1];
     delete blendState[0];
     delete blendState[1];
+    delete blendState[2];
     delete depthStencilState[0];
     delete depthStencilState[1];
+    delete depthStencilState[2];
 
     delete uiViewBuffer;
     delete uiProjectionBuffer;
@@ -80,14 +82,43 @@ void Environment::Edit()
 
 void Environment::SetAlphaBlend(bool isAlpha)
 {
-    blendState[1]->Alpha(isAlpha);
-    blendState[1]->SetState();
+    blendState[2]->Alpha(isAlpha);
+    blendState[2]->AlphaToCoverage(false);
+    blendState[2]->SetState();
 }
 
 void Environment::SetAdditive()
 {
-    blendState[1]->Additive();
-    blendState[1]->SetState();
+    blendState[2]->Additive();
+    blendState[2]->AlphaToCoverage(false);
+    blendState[2]->SetState();
+}
+
+void Environment::SetAlphaToCoverage()
+{
+    blendState[2]->AlphaToCoverage(true);
+    blendState[2]->SetState();
+}
+
+void Environment::SetDepthEnable(bool isDepthEnable)
+{
+    depthStencilState[2]->DepthEnable(isDepthEnable);
+    depthStencilState[2]->SetState();
+}
+
+void Environment::SetDepthWriteMask(D3D11_DEPTH_WRITE_MASK mask)
+{
+    depthStencilState[2]->DepthWriteMask(mask);
+    depthStencilState[2]->SetState();
+}
+
+void Environment::SetViewport(UINT width, UINT height)
+{
+    viewport.Width = width;
+    viewport.Height = height;
+    viewport.MaxDepth = 1.0f;
+
+    DC->RSSetViewports(1, &viewport);
 }
 
 void Environment::CreateState()
@@ -97,15 +128,17 @@ void Environment::CreateState()
 
     rasterizerState[0] = new RasterizerState();
     rasterizerState[1] = new RasterizerState();
-    rasterizerState[1]->FillMode(D3D11_FILL_WIREFRAME);    
+    rasterizerState[1]->FillMode(D3D11_FILL_WIREFRAME);
 
     blendState[0] = new BlendState();
     blendState[1] = new BlendState();
     blendState[1]->Alpha(true);
+    blendState[2] = new BlendState();
 
     depthStencilState[0] = new DepthStencilState();
     depthStencilState[1] = new DepthStencilState();
     depthStencilState[1]->DepthEnable(false);
+    depthStencilState[2] = new DepthStencilState();
 }
 
 void Environment::CreateUIBuffer()
@@ -124,14 +157,14 @@ void Environment::EditLight(LightBuffer::Light* light, int index)
     string label = "Light_" + to_string(index);
 
     if (ImGui::TreeNode(label.c_str()))
-    {        
+    {
         ImGui::Checkbox("Active", (bool*)&light->isActive);
 
         const char* list[] = { "Directional", "Point", "Spot" };
         ImGui::Combo("Type", &light->type, list, 3);
 
         ImGui::ColorEdit3("Color", (float*)&light->color);
-        ImGui::DragFloat3("Direction", (float*)&light->direction, 0.1f, -1, 1);       
+        ImGui::DragFloat3("Direction", (float*)&light->direction, 0.1f, -1, 1);
         ImGui::DragFloat3("Position", (float*)&light->position, 1.0f, -100, 100);
         ImGui::SliderFloat("Range", (float*)&light->range, 1, 300);
         ImGui::SliderFloat("AttentionIntensity", (float*)&light->attentionIntensity, 0.1f, 3.0f);

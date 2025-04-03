@@ -8,8 +8,8 @@ UIMaker::UIMaker()
 UIMaker::~UIMaker()
 {
 	delete heartCount;
-	//delete zombieCount;
-	//delete creditCount;
+	delete zombieCount;
+	delete creditCount;
 }
 
 void UIMaker::Update()
@@ -18,12 +18,17 @@ void UIMaker::Update()
 
 void UIMaker::Render()
 {
+	Environment::Get()->SetAlphaBlend(true);
 	heartCount->Render();
-	zombieCount->Render();
+	//zombieCount->Render();
 	creditCount->Render();
 }
 
 void UIMaker::Edit()
+{
+}
+
+void UIMaker::PostRender()
 {
 }
 
@@ -40,8 +45,8 @@ void UIMaker::CreateUI()
 	creditCount->SetLocalPosition(25, 650, 0);
 	creditCount->UpdateWorld();
 
-	zombieCount = new Quad(L"Resources/Textures/UI/zombie.png");
-	zombieCount->SetLocalScale(0.035f, 0.035f, 0.035f);
-	zombieCount->SetLocalPosition(25, 617, 0);
-	zombieCount->UpdateWorld();
+	//zombieCount = new Quad(L"Resources/Textures/UI/zombie.png");
+	//zombieCount->SetLocalScale(0.035f, 0.035f, 0.035f);
+	//zombieCount->SetLocalPosition(25, 617, 0);
+	//zombieCount->UpdateWorld();
 }

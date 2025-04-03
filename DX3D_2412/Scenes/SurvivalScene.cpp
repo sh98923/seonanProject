@@ -9,7 +9,7 @@ SurvivalScene::SurvivalScene()
 	EnemyManager::Get()->GetPlayer(player);
 	CreditManager::Get()->GetPlayer(player);
 	TreeManager::Get()->Make();
-	UIMaker::Get();
+	//UIMaker::Get();
 
 	Font::Get()->AddStyle("HP", L"배달의민족 을지로체 TTF", 40);
 	Font::Get()->AddColor("Yellow", 0, 1, 1);
@@ -40,7 +40,6 @@ void SurvivalScene::Update()
 	EnemyManager::Get()->Update();
 	CreditManager::Get()->Update();
 	player->Update();
-	//enemy->Update();
 }
 
 void SurvivalScene::PreRender()
@@ -55,20 +54,18 @@ void SurvivalScene::Render()
 	CreditManager::Get()->Render();
 	
 	player->Render();
-	//enemy->Render();
 	plane->Render();
 }
 
 void SurvivalScene::PostRender()
 {
 	player->PostRender();
-
 	string hp = "   : " + to_string(player->curHp);
 	Font::Get()->RenderText(hp, { 80, SCREEN_HEIGHT - 40 });
 	string money = " : " + to_string(player->ownedMoney);
 	Font::Get()->RenderText(money, { 80, SCREEN_HEIGHT - 70 });
-	string zombie = " : " + to_string(0);
-	Font::Get()->RenderText(zombie, { 80, SCREEN_HEIGHT - 100 });
+	//string zombie = " : " + to_string(0);
+	//Font::Get()->RenderText(zombie, { 80, SCREEN_HEIGHT - 100 });
 	UIMaker::Get()->Render();
 }
 
