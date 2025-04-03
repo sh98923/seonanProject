@@ -10,7 +10,7 @@ ParticleEditorScene::ParticleEditorScene()
     instances.resize(SIZE);
     particleInfos.resize(SIZE);
 
-    instanceBuffer = new VertexBuffer(instances.data(), sizeof(Matrix), SIZE);
+    instanceBuffer = new VertexBuffer(instances.data(), sizeof(Matrix), SIZE);    
 
     char path[128];
     GetCurrentDirectoryA(sizeof(path), path);
@@ -34,7 +34,7 @@ void ParticleEditorScene::Update()
     quad->UpdateWorld();
 
     if (lifeTime > data.duration)
-    {
+    {        
         Init();
     }
 }
@@ -77,22 +77,22 @@ void ParticleEditorScene::GUIRender()
     ImGui::DragFloat("Duration", &data.duration, 0.1f);
     ImGui::ColorEdit4("StartColor", (float*)&data.startColor);
     ImGui::ColorEdit4("EndColor", (float*)&data.endColor);
-    ImGui::SliderFloat3("MinStartPos", (float*)&data.minStartPos, -10, 10);
-    ImGui::SliderFloat3("MaxStartPos", (float*)&data.maxStartPos, -10, 10);
-    ImGui::SliderFloat3("MinVelocity", (float*)&data.minVelocity, -1, 1);
-    ImGui::SliderFloat3("MaxVelocity", (float*)&data.maxVelocity, -1, 1);
-    ImGui::SliderFloat3("MinAccelation", (float*)&data.minAccelation, -5, 5);
-    ImGui::SliderFloat3("MaxAccelation", (float*)&data.maxAccelation, -5, 5);
-    ImGui::SliderFloat3("MinStartScale", (float*)&data.minStartScale, 0, 5);
-    ImGui::SliderFloat3("MaxStartScale", (float*)&data.maxStartScale, 0, 5);
-    ImGui::SliderFloat3("MinEndScale", (float*)&data.minEndScale, 0, 5);
-    ImGui::SliderFloat3("MaxEndScale", (float*)&data.maxEndScale, 0, 5);
-    ImGui::SliderFloat("MinAngularVelocity", &data.minAngularVelocity, -10, 10);
-    ImGui::SliderFloat("MaxAngularVelocity", &data.maxAngularVelocity, -10, 10);
-    ImGui::SliderFloat("MinSpeed", &data.minSpeed, 0, data.maxSpeed);
-    ImGui::SliderFloat("MaxSpeed", &data.maxSpeed, data.minSpeed, 200);
-    ImGui::SliderFloat("MinStartTime", &data.minStartTime, 0, data.maxStartTime);
-    ImGui::SliderFloat("MaxStartTime", &data.maxStartTime, data.minStartTime, data.duration);
+    ImGui::DragFloat3("MinStartPos", (float*)&data.minStartPos, -10, 10);
+    ImGui::DragFloat3("MaxStartPos", (float*)&data.maxStartPos, -10, 10);
+    ImGui::DragFloat3("MinVelocity", (float*)&data.minVelocity, -1, 1);
+    ImGui::DragFloat3("MaxVelocity", (float*)&data.maxVelocity, -1, 1);
+    ImGui::DragFloat3("MinAccelation", (float*)&data.minAccelation, -5, 5);
+    ImGui::DragFloat3("MaxAccelation", (float*)&data.maxAccelation, -5, 5);
+    ImGui::DragFloat3("MinStartScale", (float*)&data.minStartScale, 0, 5);
+    ImGui::DragFloat3("MaxStartScale", (float*)&data.maxStartScale, 0, 5);
+    ImGui::DragFloat3("MinEndScale", (float*)&data.minEndScale, 0, 5);
+    ImGui::DragFloat3("MaxEndScale", (float*)&data.maxEndScale, 0, 5);
+    ImGui::DragFloat("MinAngularVelocity", &data.minAngularVelocity, -10, 10);
+    ImGui::DragFloat("MaxAngularVelocity", &data.maxAngularVelocity, -10, 10);
+    ImGui::DragFloat("MinSpeed", &data.minSpeed, 0, data.maxSpeed);
+    ImGui::DragFloat("MaxSpeed", &data.maxSpeed, data.minSpeed, 200);
+    ImGui::DragFloat("MinStartTime", &data.minStartTime, 0, data.maxStartTime);
+    ImGui::DragFloat("MaxStartTime", &data.maxStartTime, data.minStartTime, data.duration);
 
     SaveDialog();
     ImGui::SameLine();
