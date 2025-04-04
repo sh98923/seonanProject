@@ -12,6 +12,7 @@ Enemy::Enemy(Transform* transform)
 	transform->SetTag("Enemy");
 	Load();
 
+	dieParticle = new ParticleSystem("resources/textures/UI/FX/zombiedie.fx");
 	//EnemyManager::Get()->GetEnemyModel()->GetClip(1)->SetEvent(bind(&Enemy::EnemyDead,this),0.9f);
 } 
 
@@ -26,12 +27,14 @@ void Enemy::Update()
 	GetDamaged();
 	//BulletManager::Get()->IsCollisionWithEnemy(this);
 	player->GetDamagedFromEnemy(this);
+	dieParticle->Update();
 	UpdateWorld();
 	//model->Update();
 }
 
 void Enemy::Render()
 {
+	dieParticle->Render();
 	if (IsActive())
 	{
 		Collider::Render();
@@ -113,6 +116,7 @@ void Enemy::GetDamaged()
 		}
 		else if (curHp == 0)
 		{
+			dieParticle->Play(localPosition);
 			CreditManager::Get()->SpawnCredit(GetGlobalPosition());
 			SetActive(false);
 			//curHp = maxHp;
