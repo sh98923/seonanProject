@@ -73,7 +73,7 @@ void ParticleEditorScene::GUIRender()
     ImGui::Checkbox("Loop", &data.isLoop);
     ImGui::Checkbox("Additive", &data.isAdditive);
     ImGui::Checkbox("Billboard", &data.isBillboard);
-    ImGui::SliderInt("ParticleCount", (int*)&particleCount, 1, SIZE);
+    ImGui::DragInt("ParticleCount", (int*)&particleCount, 1, SIZE);
     ImGui::DragFloat("Duration", &data.duration, 0.1f);
     ImGui::ColorEdit4("StartColor", (float*)&data.startColor);
     ImGui::ColorEdit4("EndColor", (float*)&data.endColor);

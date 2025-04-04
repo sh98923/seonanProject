@@ -26,7 +26,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new SphereScene());
 	//SCENE->Create("Start", new SpawnScene());
 	//SCENE->Create("Start", new CollisionScene());
-	//SCENE->Create("Start", new SurvivalScene());
+	SCENE->Create("Start", new SurvivalScene());
 	//SCENE->Create("Start", new MineCraftScene());
 	//SCENE->Create("Start", new LightScene());
 	//SCENE->Create("Start", new TerrainScene());
@@ -37,7 +37,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new ModelInstancingScene());
 	//SCENE->Create("Start", new ModelAnimationScene());
 	//SCENE->Create("Start", new ModelEquipScene());
-	SCENE->Create("Start", new ParticleEditorScene());
+	//SCENE->Create("Start", new ParticleEditorScene());
 	
 
 	SCENE->Add("Grid");

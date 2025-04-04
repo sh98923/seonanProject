@@ -54,6 +54,7 @@ private:
 	Transform* weaponSocket;
 	Enemy* enemy;
 	Credit* credit;
+	ParticleSystem* particle;
 
 	PlayerState curState = SURVIVALIDLE;
 
