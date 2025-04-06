@@ -18,6 +18,8 @@ SurvivalPlayer::SurvivalPlayer()
 	weaponSocket = new Transform();
 	weapon->SetParent(weaponSocket);
 
+	particle = new ParticleSystem("Resources/Textures/UI/FX/fire.fx");
+
 	curHp = maxHp;
 	CAM->SetTarget(this);
 	CAM->TargetOptionLoad("ShootingView");
@@ -45,6 +47,7 @@ void SurvivalPlayer::Update()
 	//GetDamagedFromEnemy(enemy);
 
 	weaponSocket->SetWorld(playerModel->GetTransformByNode(31));
+	particle->Update();
 
 	UpdateWorld();
 	weapon->UpdateWorld();
@@ -56,6 +59,7 @@ void SurvivalPlayer::Render()
 {
 	playerModel->Render();
 	weapon->Render();
+	particle->Render();
 	CapsuleCollider::Render();
 	BulletManager::Get()->Render();
 }
@@ -93,9 +97,12 @@ void SurvivalPlayer::Move()
 
 void SurvivalPlayer::Fire()
 {
+	Vector3 weaponFrontPos = weaponSocket->GetLocalPosition();
+
 	if (KEY->Down(VK_LBUTTON))
 	{
 		SetState(SURVIVALMOVE);
+		particle->Play(weaponFrontPos);
 		BulletManager::Get()->Fire(localPosition, GetForward());
 	}
 }

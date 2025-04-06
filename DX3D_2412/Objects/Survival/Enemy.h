@@ -40,6 +40,7 @@ private:
 	Transform* transform;
 	//ModelAnimatorInstancing* model;
 	SurvivalPlayer* player = nullptr;
+	ParticleSystem* dieParticle;
 
 	//UINT index;
 
