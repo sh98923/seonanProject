@@ -13,7 +13,7 @@ public:
 	UINT curEnemyCount = 0;
 
 private:
-	const float SPAWN_TIMER = 1.5f;
+	const float SPAWN_TIMER = 1.2f;
 
 private:
 	friend class Singleton;
@@ -44,4 +44,6 @@ private:
 	vector<Enemy*> enemies;
 
 	float spawnInterval = 0.0f;
+
+	bool isAlive = true;
 };

@@ -39,7 +39,7 @@ void EnemyManager::Update()
 		spawnInterval -= SPAWN_TIMER;
 	}
 
-	//PlayDying();
+	
 	enemyModel->Update();
 
 	for (Enemy* enemy : enemies)

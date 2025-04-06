@@ -48,13 +48,14 @@ void SurvivalScene::PreRender()
 
 void SurvivalScene::Render()
 {
+	plane->Render();
 	//skybox->Render();
 	TreeManager::Get()->Render();
 	EnemyManager::Get()->Render();
 	CreditManager::Get()->Render();
 	
 	player->Render();
-	plane->Render();
+	
 }
 
 void SurvivalScene::PostRender()

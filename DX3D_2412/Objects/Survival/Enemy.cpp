@@ -23,23 +23,27 @@ Enemy::~Enemy()
 void Enemy::Update()
 {
 	if (!IsActive()) return;
+
+	if (!dieParticle->IsActive()) isParticlePlay = false;
+
 	Trace();
 	GetDamaged();
+	dieParticle->Update();
 	//BulletManager::Get()->IsCollisionWithEnemy(this);
 	player->GetDamagedFromEnemy(this);
-	dieParticle->Update();
 	UpdateWorld();
 	//model->Update();
 }
 
 void Enemy::Render()
 {
-	dieParticle->Render();
+	
 	if (IsActive())
 	{
 		Collider::Render();
 	}
 	//model->Render();
+	dieParticle->Render();
 }
 
 void Enemy::EnemyDead()
@@ -117,7 +121,9 @@ void Enemy::GetDamaged()
 		else if (curHp == 0)
 		{
 			dieParticle->Play(localPosition);
+			isParticlePlay = true;
 			CreditManager::Get()->SpawnCredit(GetGlobalPosition());
+			
 			SetActive(false);
 			//curHp = maxHp;
 		}

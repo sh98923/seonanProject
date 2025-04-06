@@ -33,6 +33,9 @@ public:
 	void Trace();
 	void GetDamaged();
 
+	bool CheckParticleTrue() { return isParticlePlay; }
+	ParticleSystem* GetEnemyDieParticle() { return dieParticle; }
+
 public:
 	int curHp;
 
@@ -53,4 +56,6 @@ private:
 	Vector3 velocity;
 	
 	int maxHp = 3;
+
+	bool isParticlePlay = false;
 };

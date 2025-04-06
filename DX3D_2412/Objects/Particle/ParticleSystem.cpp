@@ -28,7 +28,10 @@ void ParticleSystem::Update()
         if (data.isLoop)
             Init();
         else
+        {
             Stop();
+            isParticleOver = true;
+        }  
     }
 }
 
@@ -112,6 +115,7 @@ void ParticleSystem::UpdateColor()
 
 void ParticleSystem::Init()
 {
+    isParticleOver = false;
     lifeTime = 0.0f;
     drawCount = 0;
     data.count = particleCount;

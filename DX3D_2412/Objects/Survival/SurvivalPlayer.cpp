@@ -59,9 +59,10 @@ void SurvivalPlayer::Render()
 {
 	playerModel->Render();
 	weapon->Render();
-	particle->Render();
-	CapsuleCollider::Render();
+	
+	CapsuleCollider::Render();	
 	BulletManager::Get()->Render();
+	particle->Render();
 }
 
 void SurvivalPlayer::PostRender()
@@ -96,13 +97,14 @@ void SurvivalPlayer::Move()
 }
 
 void SurvivalPlayer::Fire()
-{
-	Vector3 weaponFrontPos = weaponSocket->GetLocalPosition();
-
+{	
+	Vector3 weaponFrontPos = weapon->GetGlobalPosition();// +(weapon->GetGlobalPosition().GetNormalized() * Vector3::Forward()); 
+	Vector3 dir = (weapon->GetGlobalPosition() - GetGlobalPosition()).GetNormalized();
+	dir.y = 0;
 	if (KEY->Down(VK_LBUTTON))
 	{
 		SetState(SURVIVALMOVE);
-		particle->Play(weaponFrontPos);
+		particle->Play(weaponFrontPos + (dir * 2));
 		BulletManager::Get()->Fire(localPosition, GetForward());
 	}
 }

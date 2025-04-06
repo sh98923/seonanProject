@@ -54,6 +54,7 @@ public:
     void Stop();
 
     bool IsActive() { return quad->IsActive(); }
+    
 
 private:
     void UpdatePhysical();
@@ -75,4 +76,6 @@ private:
     float lifeTime = 0.0f;
     UINT drawCount = 0;
     UINT particleCount = 100;
+
+    bool isParticleOver = false;
 };
