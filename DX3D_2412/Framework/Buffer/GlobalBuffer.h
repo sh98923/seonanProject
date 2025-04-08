@@ -119,9 +119,12 @@ public:
     {
     }
 
+    Light& GetLight() { return lightData; }
     Data& Get() { return data; }
+    
 
 private:
+    Light lightData;
     Data data;
 };
 

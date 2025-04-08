@@ -18,9 +18,12 @@ public:
 
 	void GetPlayer(SurvivalPlayer* player);
 
+	MaterialBuffer* GetMaterial() { return materialBuffer; }
+
 	void SpawnCredit(Vector3 pos);
 
 private:
 	ModelInstancing* creditModel;
 	vector<Credit*> credits;
+	MaterialBuffer* materialBuffer;
 };

@@ -54,7 +54,10 @@ public:
     void Stop();
 
     bool IsActive() { return quad->IsActive(); }
+    void SetActive(bool isActive) { this->isActive = isActive; }
     
+public:
+    bool isActive = true;
 
 private:
     void UpdatePhysical();

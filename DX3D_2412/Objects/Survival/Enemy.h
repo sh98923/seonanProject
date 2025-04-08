@@ -33,9 +33,6 @@ public:
 	void Trace();
 	void GetDamaged();
 
-	bool CheckParticleTrue() { return isParticlePlay; }
-	ParticleSystem* GetEnemyDieParticle() { return dieParticle; }
-
 public:
 	int curHp;
 
@@ -43,7 +40,6 @@ private:
 	Transform* transform;
 	//ModelAnimatorInstancing* model;
 	SurvivalPlayer* player = nullptr;
-	ParticleSystem* dieParticle;
 
 	//UINT index;
 

@@ -178,6 +178,7 @@ typedef function<void(int)> IntParamEvent;
 #include "Objects/Survival/Enemy.h"
 #include "Objects/Survival/EnemyManager.h"
 #include "Objects/Survival/UIMaker.h"
+#include "Objects/Survival/ParticleManager.h"
 
 #include "Objects/Survival/Player.h"
 

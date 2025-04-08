@@ -222,6 +222,7 @@
     <ClInclude Include="Objects\Survival\EnemyManager.h" />
     <ClInclude Include="Objects\Survival\Item.h" />
     <ClInclude Include="Objects\Survival\ItemManager.h" />
+    <ClInclude Include="Objects\Survival\ParticleManager.h" />
     <ClInclude Include="Objects\Survival\SurvivalPlayer.h" />
     <ClInclude Include="Objects\Survival\Player.h" />
     <ClInclude Include="Objects\Survival\CreditManager.h" />
@@ -329,6 +330,7 @@
     <ClCompile Include="Objects\Survival\EnemyManager.cpp" />
     <ClCompile Include="Objects\Survival\Item.cpp" />
     <ClCompile Include="Objects\Survival\ItemManager.cpp" />
+    <ClCompile Include="Objects\Survival\ParticleManager.cpp" />
     <ClCompile Include="Objects\Survival\Player.cpp" />
     <ClCompile Include="Objects\Survival\SurvivalPlayer.cpp" />
     <ClCompile Include="Objects\Survival\Tree.cpp" />

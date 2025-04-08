@@ -12,7 +12,8 @@ Enemy::Enemy(Transform* transform)
 	transform->SetTag("Enemy");
 	Load();
 
-	dieParticle = new ParticleSystem("resources/textures/UI/FX/zombiedie.fx");
+	ParticleManager::Get();
+	//dieParticle = new ParticleSystem("resources/textures/UI/FX/zombiedie.fx");
 	//EnemyManager::Get()->GetEnemyModel()->GetClip(1)->SetEvent(bind(&Enemy::EnemyDead,this),0.9f);
 } 
 
@@ -24,31 +25,24 @@ void Enemy::Update()
 {
 	if (!IsActive()) return;
 
-	if (!dieParticle->IsActive()) isParticlePlay = false;
+	//if (!dieParticle->IsActive()) isParticlePlay = false;
 
 	Trace();
 	GetDamaged();
-	dieParticle->Update();
 	//BulletManager::Get()->IsCollisionWithEnemy(this);
+	ParticleManager::Get()->Update();
 	player->GetDamagedFromEnemy(this);
 	UpdateWorld();
-	//model->Update();
 }
 
 void Enemy::Render()
 {
-	
 	if (IsActive())
 	{
 		Collider::Render();
 	}
-	//model->Render();
-	dieParticle->Render();
-}
 
-void Enemy::EnemyDead()
-{
-	SetActive(false);
+	ParticleManager::Get()->Render();
 }
 
 //void Enemy::ReadClips()
@@ -78,7 +72,6 @@ void Enemy::EnemyDead()
 
 void Enemy::Spawn()
 {
-	//curEnemyCount++;
 	curHp = maxHp;
 	SetColor(0, 1, 0);
 	SetLocalPosition(GameMath::Random(Vector3(-24.0f, 2.0f, -24.0f), Vector3(24.0f, 2.0f, 24.0f)));
@@ -120,12 +113,10 @@ void Enemy::GetDamaged()
 		}
 		else if (curHp == 0)
 		{
-			dieParticle->Play(localPosition);
-			isParticlePlay = true;
+			ParticleManager::Get()->PlayDieParticle(localPosition);
 			CreditManager::Get()->SpawnCredit(GetGlobalPosition());
 			
 			SetActive(false);
-			//curHp = maxHp;
 		}
 	}
 }

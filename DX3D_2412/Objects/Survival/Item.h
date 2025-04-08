@@ -9,7 +9,6 @@ public:
 	void Update();
 	void Render();
 
-
 private:
 	Transform* transform;
 };

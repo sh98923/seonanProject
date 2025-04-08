@@ -4,6 +4,7 @@
 Item::Item(Transform* transform) 
 	: SphereCollider(), transform(transform)
 {
+	
 }
 
 Item::~Item()

@@ -98,9 +98,10 @@ void SurvivalPlayer::Move()
 
 void SurvivalPlayer::Fire()
 {	
-	Vector3 weaponFrontPos = weapon->GetGlobalPosition();// +(weapon->GetGlobalPosition().GetNormalized() * Vector3::Forward()); 
+	Vector3 weaponFrontPos = weapon->GetGlobalPosition();
 	Vector3 dir = (weapon->GetGlobalPosition() - GetGlobalPosition()).GetNormalized();
 	dir.y = 0;
+
 	if (KEY->Down(VK_LBUTTON))
 	{
 		SetState(SURVIVALMOVE);
