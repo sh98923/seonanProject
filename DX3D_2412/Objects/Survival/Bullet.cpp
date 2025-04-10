@@ -32,7 +32,6 @@ void Bullet::Update()
 		SetActive(false);
 
 	Translate(velocity * speed * DELTA);
-	//EnemyManager::Get()->GetDamagedFromBullet(this);
 	UpdateWorld();	
 }
 
@@ -43,7 +42,6 @@ void Bullet::Render()
 
 void Bullet::Edit()
 {
-	//transform->Edit();
 	Transform::Edit();
 }
 

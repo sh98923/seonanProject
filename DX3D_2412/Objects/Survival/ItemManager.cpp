@@ -1,20 +1,26 @@
 #include "Framework.h"
+#include "ItemManager.h"
 
 ItemManager::ItemManager()
 {
-	heartUp = new ModelInstancing("heart", itemSize / 3);
-	powerUp = new ModelInstancing("power", itemSize / 3);
+	creditModel = new ModelInstancing("money", POOL_SIZE);
+	heartUpModel = new ModelInstancing("heart", POOL_SIZE);
+	powerUpModel = new ModelInstancing("power", POOL_SIZE);
 
-	items.reserve(itemSize);
+	credits.reserve(POOL_SIZE);
+	items.reserve(POOL_SIZE * 2);
 
-	FOR(itemSize)
+	FOR(POOL_SIZE)
 	{
-		Item* heart = new Item(heartUp->Add());
-		Item* power = new Item(powerUp->Add());
+		Credit* credit = new Credit(creditModel->Add());
+		Item* heart = new Item(heartUpModel->Add());
+		Item* power = new Item(powerUpModel->Add());
 
+		credit->SetActive(false);
 		heart->SetActive(false);
 		power->SetActive(false);
 
+		credits.push_back(credit);
 		items.push_back(heart);
 		items.push_back(power);
 	}
@@ -22,30 +28,72 @@ ItemManager::ItemManager()
 
 ItemManager::~ItemManager()
 {
+	delete creditModel;
+	delete heartUpModel;
+	delete powerUpModel;
 }
 
 void ItemManager::Update()
 {
+	for (Credit* credit : credits)
+		credit->Update();
+
 	for (Item* item : items)
 		item->Update();
 
-	heartUp->Update();
-	powerUp->Update();
+	//for (Item* power : items)
+	//	power->Update();
+	
+	creditModel->Update();
+	heartUpModel->Update();
+	powerUpModel->Update();
 }
 
 void ItemManager::Render()
 {
+	creditModel->Render();
+	heartUpModel->Render();
+	powerUpModel->Render();
+
+	for (Credit* credit : credits)
+		credit->Render();
+
 	for (Item* item : items)
 		item->Render();
 
-	heartUp->Render();
-	powerUp->Render();
+	//for (Item* power : items)
+	//	power->Render();
+}
+
+void ItemManager::Edit()
+{
+	creditModel->Edit();
 }
 
 void ItemManager::GetPlayer(SurvivalPlayer* player)
 {
+	for (Credit* credit : credits)
+		credit->SetPlayer(player);
+
 	for (Item* item : items)
 		item->SetPlayer(player);
+
+	//for (Item* power : items)
+	//	power->SetPlayer(player);
+}
+
+void ItemManager::SpawnCredit(Vector3 pos)
+{
+	for (Credit* credit : credits)
+	{
+		if (!credit->IsActive())
+		{
+			credit->SetActive(true);
+			credit->SetLocalPosition(pos);
+			credit->UpdateWorld();
+			return;
+		}
+	}
 }
 
 void ItemManager::SpawnItem(Vector3 pos)

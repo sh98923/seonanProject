@@ -7,8 +7,6 @@ public:
 	{
 		RUNNING, DYING, NONE
 	};
-public:
-	//UINT curEnemyCount = 0;
 
 private:
 	const float SPAWN_INTERVAL = 1.0f;
@@ -23,11 +21,8 @@ public:
 	void ReadClips();
 	void SetState(EnemyState state);
 	void EnemyDead();
-	//void PlayDying();
 
 	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
-
-	//void GetHp() { return this->curHp; }
 
 	void Spawn();
 	void Trace();
@@ -38,10 +33,7 @@ public:
 
 private:
 	Transform* transform;
-	//ModelAnimatorInstancing* model;
 	SurvivalPlayer* player = nullptr;
-
-	//UINT index;
 
 	EnemyState curState = RUNNING;
 

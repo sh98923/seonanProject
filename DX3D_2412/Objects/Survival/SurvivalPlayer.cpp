@@ -44,7 +44,6 @@ void SurvivalPlayer::Update()
 	SetAction();
 	GetInvincible();
 	ObtainMoney(credit);
-	//GetDamagedFromEnemy(enemy);
 
 	weaponSocket->SetWorld(playerModel->GetTransformByNode(31));
 	particle->Update();

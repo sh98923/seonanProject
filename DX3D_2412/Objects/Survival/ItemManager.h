@@ -3,7 +3,7 @@
 class ItemManager : public Singleton<ItemManager>
 {
 private:
-	const UINT itemSize = 120;
+	const int POOL_SIZE = 200;
 
 private:
 	friend class Singleton;
@@ -14,14 +14,18 @@ private:
 public:
 	void Update();
 	void Render();
+	void Edit();
 
 	void GetPlayer(SurvivalPlayer* player);
 
+	void SpawnCredit(Vector3 pos);
 	void SpawnItem(Vector3 pos);
-private:
-	ModelInstancing* heartUp;
-	ModelInstancing* speedUp;
-	ModelInstancing* powerUp;
 
+private:
+	ModelInstancing* creditModel;
+	ModelInstancing* heartUpModel;
+	ModelInstancing* powerUpModel;
+
+	vector<Credit*> credits;
 	vector<Item*> items;
 };

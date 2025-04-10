@@ -7,7 +7,7 @@ SurvivalScene::SurvivalScene()
 	player->SetLocalPosition(0, 2, 0);
 
 	EnemyManager::Get()->GetPlayer(player);
-	CreditManager::Get()->GetPlayer(player);
+	ItemManager::Get()->GetPlayer(player);
 	TreeManager::Get()->Make();
 	//UIMaker::Get();
 
@@ -27,7 +27,7 @@ SurvivalScene::~SurvivalScene()
 {
 	TreeManager::Delete();
 	EnemyManager::Delete();
-	CreditManager::Delete();
+	ItemManager::Delete();
 	UIMaker::Delete();
 	
 	delete player;
@@ -38,7 +38,7 @@ void SurvivalScene::Update()
 {
 	TreeManager::Get()->Update();
 	EnemyManager::Get()->Update();
-	CreditManager::Get()->Update();
+	ItemManager::Get()->Update();
 	player->Update();
 }
 
@@ -52,7 +52,7 @@ void SurvivalScene::Render()
 	//skybox->Render();
 	TreeManager::Get()->Render();
 	EnemyManager::Get()->Render();
-	CreditManager::Get()->Render();
+	ItemManager::Get()->Render();
 	
 	player->Render();
 	

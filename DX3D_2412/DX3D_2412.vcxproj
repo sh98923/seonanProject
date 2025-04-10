@@ -221,11 +221,10 @@
     <ClInclude Include="Objects\Survival\Enemy.h" />
     <ClInclude Include="Objects\Survival\EnemyManager.h" />
     <ClInclude Include="Objects\Survival\Item.h" />
-    <ClInclude Include="Objects\Survival\ItemManager.h" />
     <ClInclude Include="Objects\Survival\ParticleManager.h" />
     <ClInclude Include="Objects\Survival\SurvivalPlayer.h" />
     <ClInclude Include="Objects\Survival\Player.h" />
-    <ClInclude Include="Objects\Survival\CreditManager.h" />
+    <ClInclude Include="Objects\Survival\ItemManager.h" />
     <ClInclude Include="Objects\Survival\Tree.h" />
     <ClInclude Include="Objects\Survival\TreeManager.h" />
     <ClInclude Include="Objects\Survival\UIMaker.h" />
@@ -325,11 +324,10 @@
     <ClCompile Include="Objects\Survival\Bullet.cpp" />
     <ClCompile Include="Objects\Survival\BulletManager.cpp" />
     <ClCompile Include="Objects\Survival\Credit.cpp" />
-    <ClCompile Include="Objects\Survival\CreditManager.cpp" />
+    <ClCompile Include="Objects\Survival\ItemManager.cpp" />
     <ClCompile Include="Objects\Survival\Enemy.cpp" />
     <ClCompile Include="Objects\Survival\EnemyManager.cpp" />
     <ClCompile Include="Objects\Survival\Item.cpp" />
-    <ClCompile Include="Objects\Survival\ItemManager.cpp" />
     <ClCompile Include="Objects\Survival\ParticleManager.cpp" />
     <ClCompile Include="Objects\Survival\Player.cpp" />
     <ClCompile Include="Objects\Survival\SurvivalPlayer.cpp" />

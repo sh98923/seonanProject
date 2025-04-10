@@ -13,8 +13,6 @@ Enemy::Enemy(Transform* transform)
 	Load();
 
 	ParticleManager::Get();
-	//dieParticle = new ParticleSystem("resources/textures/UI/FX/zombiedie.fx");
-	//EnemyManager::Get()->GetEnemyModel()->GetClip(1)->SetEvent(bind(&Enemy::EnemyDead,this),0.9f);
 } 
 
 Enemy::~Enemy()
@@ -25,11 +23,8 @@ void Enemy::Update()
 {
 	if (!IsActive()) return;
 
-	//if (!dieParticle->IsActive()) isParticlePlay = false;
-
 	Trace();
 	GetDamaged();
-	//BulletManager::Get()->IsCollisionWithEnemy(this);
 	ParticleManager::Get()->Update();
 	player->GetDamagedFromEnemy(this);
 	UpdateWorld();
@@ -41,34 +36,8 @@ void Enemy::Render()
 	{
 		Collider::Render();
 	}
-
 	ParticleManager::Get()->Render();
 }
-
-//void Enemy::ReadClips()
-//{
-//	model->ReadClip("running");
-//	model->ReadClip("dying");
-//	model->CreateTexture();
-//
-//	model->GetClip(RUNNING)->SetEvent(bind(&Enemy::isDead, this), 0.1f);
-//}
-
-//void Enemy::SetState(EnemyState state)
-//{
-//	curState == state;
-//	model->PlayClip(state);
-//}
-//
-//void Enemy::IsDead()
-//{
-//	SetState(DYING);
-//}
-//
-//void Enemy::PlayDying()
-//{
-//	model->GetClip(DYING)->SetEvent(bind(&Enemy::isDead, this), 0.1f);
-//}
 
 void Enemy::Spawn()
 {
@@ -85,15 +54,6 @@ void Enemy::Trace()
 		Vector3 dir = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
 		Translate(dir * moveSpeed * DELTA);
 		localRotation.y = atan2(dir.x, dir.z);
-
-		//if (IsCollision(player))
-		//	moveSpeed = 0;
-		//if (!IsCollision(player))
-		//{
-		//	Vector3 dir = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
-		//	Translate(dir * moveSpeed * DELTA);
-		//	localRotation.y = atan2(dir.x, dir.z);
-		//}
 	}
 	
 }
@@ -109,10 +69,10 @@ void Enemy::GetDamaged()
 		{
 			ParticleManager::Get()->PlayDieParticle(localPosition);
 
-			if (spawnProbability > 80)
-				CreditManager::Get()->SpawnItem(GetGlobalPosition());
+			if (spawnProbability > 70)
+				ItemManager::Get()->SpawnItem(GetGlobalPosition());
 			else 
-				CreditManager::Get()->SpawnCredit(GetGlobalPosition());
+				ItemManager::Get()->SpawnCredit(GetGlobalPosition());
 			
 			SetActive(false);
 		}

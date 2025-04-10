@@ -288,13 +288,10 @@
     <ClInclude Include="Objects\Survival\Credit.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Objects\Survival\CreditManager.h">
+    <ClInclude Include="Objects\Survival\ItemManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Objects\Survival\Item.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Objects\Survival\ItemManager.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Objects\Survival\Tree.h">
@@ -590,13 +587,10 @@
     <ClCompile Include="Objects\Survival\Credit.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Objects\Survival\CreditManager.cpp">
+    <ClCompile Include="Objects\Survival\ItemManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Objects\Survival\Item.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
-    <ClCompile Include="Objects\Survival\ItemManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="Objects\Survival\Tree.cpp">

@@ -25,8 +25,8 @@ void Credit::Update()
 	if (!IsActive()) return;
 	
 	CreditFloating();
-	//player->ObtainMoney(this);
-	//PickedUpCreditToPlayer();
+	player->ObtainMoney(this);
+	PickedUpCreditToPlayer();
 	UpdateWorld();
 }
 
@@ -47,10 +47,8 @@ void Credit::PickedUpCreditToPlayer()
 	Vector3 pos = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
 	float dir = Vector3::Distance(GetLocalPosition() , player->GetLocalPosition());
 	
-	//if (absorbRange > dir.x)
 	if (dir < pickUpRange)
 	{
-		//Translate(pos * pickUpSpeed * DELTA);
 		Vector3 newPos = GameMath::Lerp(GetLocalPosition(), player->GetLocalPosition(), 0.3f * pickUpSpeed * DELTA);
 
 		SetLocalPosition(newPos);

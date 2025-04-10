@@ -5,10 +5,7 @@ EnemyManager::EnemyManager()
 	enemyModel = new ModelAnimatorInstancing("Zombie");
 	
 	enemyModel->ReadClip("running");
-	enemyModel->ReadClip("dying");
 	enemyModel->CreateTexture();
-
-	//enemyModel->GetClip(DIE)->SetEvent(bind(&Enemy::EnemyDead, this), 0.9f);
 
 	enemies.reserve(enemyCount);
 	

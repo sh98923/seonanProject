@@ -8,6 +8,8 @@ Item::Item(Transform* transform)
 	transform->SetParent(this);
 
 	transform->SetLocalPosition(0, -1.0f, 0);
+	Rotate(Vector3::Up(), XM_PI / 2);
+
 	size_t pos = transform->GetTag().find("heart");
 	if (pos != transform->GetTag().npos)
 	{
@@ -15,10 +17,9 @@ Item::Item(Transform* transform)
 
 		if (sub == "heart")
 		{
-			transform->SetLocalScale(0.3f, 0.3f, 0.3f);
+			transform->SetLocalScale(0.2f, 0.2f, 0.2f);
 		}
 	}
-	Rotate(Vector3::Up(), XM_PI / 2);
 
 	transform->SetTag("item");
 	Load();
@@ -33,8 +34,8 @@ void Item::Update()
 	if (!IsActive()) return;
 
 	ItemFloating();
-	//player->ObtainMoney(this);
-	//PickedUpItemToPlayer();
+	player->ObtainMoney(this);
+	PickedUpItemToPlayer();
 	UpdateWorld();
 }
 
@@ -50,10 +51,8 @@ void Item::PickedUpItemToPlayer()
 	Vector3 pos = (player->GetLocalPosition() - GetLocalPosition()).GetNormalized();
 	float dir = Vector3::Distance(GetLocalPosition(), player->GetLocalPosition());
 
-	//if (absorbRange > dir.x)
 	if (dir < pickUpRange)
 	{
-		//Translate(pos * pickUpSpeed * DELTA);
 		Vector3 newPos = GameMath::Lerp(GetLocalPosition(), player->GetLocalPosition(), 0.3f * pickUpSpeed * DELTA);
 
 		SetLocalPosition(newPos);
