@@ -4,21 +4,32 @@
 CreditManager::CreditManager()
 {
 	creditModel = new ModelInstancing("money", POOL_SIZE);
+	heartUpModel = new ModelInstancing("heart", POOL_SIZE);
+	powerUpModel = new ModelInstancing("power", POOL_SIZE);
 
 	credits.reserve(POOL_SIZE);
 
 	FOR(POOL_SIZE)
 	{
 		Credit* credit = new Credit(creditModel->Add());
+		Item* heart = new Item(heartUpModel->Add());
+		Item* power = new Item(powerUpModel->Add());
+
 		credit->SetActive(false);
+		heart->SetActive(false);
+		power->SetActive(false);
 
 		credits.push_back(credit);
+		items.push_back(heart);
+		items.push_back(power);
 	}
 }
 
 CreditManager::~CreditManager()
 {
 	delete creditModel;
+	delete heartUpModel;
+	delete powerUpModel;
 }
 
 void CreditManager::Update()
@@ -26,15 +37,31 @@ void CreditManager::Update()
 	for (Credit* credit : credits)
 		credit->Update();
 
+	for (Item* item : items)
+		item->Update();
+
+	//for (Item* power : items)
+	//	power->Update();
+	
 	creditModel->Update();
+	heartUpModel->Update();
+	powerUpModel->Update();
 }
 
 void CreditManager::Render()
 {
 	creditModel->Render();
+	heartUpModel->Render();
+	powerUpModel->Render();
 
 	for (Credit* credit : credits)
 		credit->Render();
+
+	for (Item* item : items)
+		item->Render();
+
+	//for (Item* power : items)
+	//	power->Render();
 }
 
 void CreditManager::Edit()
@@ -46,6 +73,12 @@ void CreditManager::GetPlayer(SurvivalPlayer* player)
 {
 	for (Credit* credit : credits)
 		credit->SetPlayer(player);
+
+	for (Item* item : items)
+		item->SetPlayer(player);
+
+	//for (Item* power : items)
+	//	power->SetPlayer(player);
 }
 
 void CreditManager::SpawnCredit(Vector3 pos)
@@ -57,6 +90,20 @@ void CreditManager::SpawnCredit(Vector3 pos)
 			credit->SetActive(true);
 			credit->SetLocalPosition(pos);
 			credit->UpdateWorld();
+			return;
+		}
+	}
+}
+
+void CreditManager::SpawnItem(Vector3 pos)
+{
+	for (Item* item : items)
+	{
+		if (!item->IsActive())
+		{
+			item->SetActive(true);
+			item->SetLocalPosition(pos);
+			item->UpdateWorld();
 			return;
 		}
 	}

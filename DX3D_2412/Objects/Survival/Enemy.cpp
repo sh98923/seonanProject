@@ -100,21 +100,19 @@ void Enemy::Trace()
 
 void Enemy::GetDamaged()
 {
+	int spawnProbability = GameMath::Random(1, 100);
+	
 	if (BulletManager::Get()->IsCollisionWithEnemy(this))
 	{
 		curHp--;
-		if (curHp == 2)
-		{
-			SetColor(0, 0, 0);
-		}
-		else if (curHp == 1)
-		{
-			SetColor(1, 1, 1);
-		}
-		else if (curHp == 0)
+		if (curHp == 0)
 		{
 			ParticleManager::Get()->PlayDieParticle(localPosition);
-			CreditManager::Get()->SpawnCredit(GetGlobalPosition());
+
+			if (spawnProbability > 80)
+				CreditManager::Get()->SpawnItem(GetGlobalPosition());
+			else 
+				CreditManager::Get()->SpawnCredit(GetGlobalPosition());
 			
 			SetActive(false);
 		}

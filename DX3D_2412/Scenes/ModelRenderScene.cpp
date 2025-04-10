@@ -3,7 +3,7 @@
 
 ModelRenderScene::ModelRenderScene()
 {
-	model = new Model("speed");
+	model = new Model("heart");
 	//model->SetShader(L"Model/Model.hlsl");
 }
 

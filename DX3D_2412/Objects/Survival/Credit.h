@@ -12,7 +12,9 @@ public:
 
 	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
 
-	void PickedUpToPlayer();
+	void PickedUpCreditToPlayer();
+
+	void CreditFloating();
 
 private:
 	Transform* transform;
@@ -20,4 +22,5 @@ private:
 
 	float pickUpSpeed = 13.0f;
 	float pickUpRange = 10.0f;
+	float floatingTime;
 };

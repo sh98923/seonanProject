@@ -3,7 +3,7 @@
 class CreditManager : public Singleton<CreditManager>
 {
 private:
-	const int POOL_SIZE = 1000;
+	const int POOL_SIZE = 200;
 
 private:
 	friend class Singleton;
@@ -18,12 +18,14 @@ public:
 
 	void GetPlayer(SurvivalPlayer* player);
 
-	MaterialBuffer* GetMaterial() { return materialBuffer; }
-
 	void SpawnCredit(Vector3 pos);
+	void SpawnItem(Vector3 pos);
 
 private:
 	ModelInstancing* creditModel;
+	ModelInstancing* heartUpModel;
+	ModelInstancing* powerUpModel;
+
 	vector<Credit*> credits;
-	MaterialBuffer* materialBuffer;
+	vector<Item*> items;
 };
