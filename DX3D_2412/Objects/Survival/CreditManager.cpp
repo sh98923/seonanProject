@@ -8,6 +8,7 @@ CreditManager::CreditManager()
 	powerUpModel = new ModelInstancing("power", POOL_SIZE);
 
 	credits.reserve(POOL_SIZE);
+	items.reserve(POOL_SIZE * 2);
 
 	FOR(POOL_SIZE)
 	{

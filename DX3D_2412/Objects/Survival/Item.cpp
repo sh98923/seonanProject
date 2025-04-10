@@ -8,11 +8,20 @@ Item::Item(Transform* transform)
 	transform->SetParent(this);
 
 	transform->SetLocalPosition(0, -1.0f, 0);
-	//transform->SetLocalScale(0.3f, 0.3f, 0.3f);
+	size_t pos = transform->GetTag().find("heart");
+	if (pos != transform->GetTag().npos)
+	{
+		string sub = tag.substr(pos, 5);
+
+		if (sub == "heart")
+		{
+			transform->SetLocalScale(0.3f, 0.3f, 0.3f);
+		}
+	}
 	Rotate(Vector3::Up(), XM_PI / 2);
 
 	transform->SetTag("item");
-	transform->Load();
+	Load();
 }
 
 Item::~Item()

@@ -3,7 +3,7 @@
 
 ModelExportScene::ModelExportScene()
 {
-    string name = "speed";
+    string name = "power";
     string extension = "fbx";
     string file = "Resources/Models/FBX/" + name + "." + extension;
 
