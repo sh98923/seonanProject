@@ -7,6 +7,10 @@ ItemManager::ItemManager()
 	heartUpModel = new ModelInstancing("heart", POOL_SIZE);
 	powerUpModel = new ModelInstancing("power", POOL_SIZE);
 
+	creditModel->SetShader(L"Instancing/UnlitInstancing.hlsl");
+	heartUpModel->SetShader(L"Instancing/UnlitInstancing.hlsl");
+	powerUpModel->SetShader(L"Instancing/UnlitInstancing.hlsl");
+
 	credits.reserve(POOL_SIZE);
 	items.reserve(POOL_SIZE * 2);
 

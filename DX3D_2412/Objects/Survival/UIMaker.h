@@ -1,5 +1,4 @@
 #pragma once
-class SurvivalPlayer;
 
 class UIMaker : public Singleton<UIMaker>
 {

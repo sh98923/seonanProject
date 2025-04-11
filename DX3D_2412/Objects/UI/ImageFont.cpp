@@ -29,6 +29,7 @@ void ImageFont::Render()
         int index = strValue.size() - i - 1;
 
         quads[index]->GetMaterial()->SetDiffuseMap(textures[num]);
+        quads[index]->GetMaterial()->SetShader(L"Basic/Texture.hlsl");
         quads[index]->Render();
     }
 }

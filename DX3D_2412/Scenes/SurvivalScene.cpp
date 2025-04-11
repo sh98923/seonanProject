@@ -8,6 +8,7 @@ SurvivalScene::SurvivalScene()
 
 	EnemyManager::Get()->GetPlayer(player);
 	ItemManager::Get()->GetPlayer(player);
+	UIMaker::Get()->SetPlayer(player);
 	TreeManager::Get()->Make();
 
 	plane = new Plane(Vector2(150, 150), 2, 2);

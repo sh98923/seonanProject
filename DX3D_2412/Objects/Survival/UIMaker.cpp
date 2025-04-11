@@ -26,9 +26,10 @@ void UIMaker::Render()
 	Environment::Get()->SetAlphaBlend(true);
 	heartCount->Render();
 	creditCount->Render();
-
+	
 	heartFont->Render();
-	creditFont->Render();
+	creditFont->Render(); 
+	Environment::Get()->SetAlphaBlend(false);
 }
 
 void UIMaker::Edit()
