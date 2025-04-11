@@ -69,9 +69,9 @@ void Enemy::GetDamaged()
 		{
 			ParticleManager::Get()->PlayDieParticle(localPosition);
 
-			if (spawnProbability > 70)
+			if (spawnProbability > 90)
 				ItemManager::Get()->SpawnItem(GetGlobalPosition());
-			else 
+			else if (spawnProbability > 20)
 				ItemManager::Get()->SpawnCredit(GetGlobalPosition());
 			
 			SetActive(false);

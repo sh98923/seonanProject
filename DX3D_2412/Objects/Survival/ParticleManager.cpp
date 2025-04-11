@@ -6,13 +6,9 @@ ParticleManager::ParticleManager()
 
 	FOR(particleSize)
 	{
-		//fireParticle = new ParticleSystem("Resources/Textures/UI/FX/fire.fx");
 		dieParticle = new ParticleSystem("Resources/Textures/UI/FX/zombiedie.fx");
-
-		//fireParticle->SetActive(false);
 		dieParticle->SetActive(false);
 
-		//particles.push_back(fireParticle);
 		particles.push_back(dieParticle);
 	}
 }
@@ -38,11 +34,5 @@ void ParticleManager::PlayDieParticle(Vector3 pos, Vector3 rot)
 	dieParticle->SetActive(true);
 	dieParticle->Play(pos,rot);
 }
-
-//void ParticleManager::PlayFireParticle(Vector3 pos, Vector3 rot)
-//{
-//	fireParticle->SetActive(true);
-//	fireParticle->Play(pos, rot);
-//}
 
 

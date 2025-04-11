@@ -20,6 +20,6 @@ private:
 	SurvivalPlayer* player = nullptr;
 
 	float pickUpSpeed = 13.0f;
-	float pickUpRange = 10.0f;
+	float pickUpRange = 8.0f;
 	float floatingTime;
 };

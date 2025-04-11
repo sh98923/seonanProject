@@ -9,18 +9,18 @@ SurvivalScene::SurvivalScene()
 	EnemyManager::Get()->GetPlayer(player);
 	ItemManager::Get()->GetPlayer(player);
 	TreeManager::Get()->Make();
-	//UIMaker::Get();
-
-	Font::Get()->AddStyle("HP", L"배달의민족 을지로체 TTF", 40);
-	Font::Get()->AddColor("Yellow", 0, 1, 1);
-
-	//skybox = new Skybox(L"Resources/Textures/Landscape/Snow_ENV.dds");
 
 	plane = new Plane(Vector2(150, 150), 2, 2);
 	plane->SetLocalPosition(-75, 0, -75);
-	plane->UpdateWorld();
 	plane->GetMaterial()->SetDiffuseMap(L"Resources/Textures/Landscape/survivalground3.png");
 	plane->GetMaterial()->SetNormalMap(L"Resources/Textures/Landscape/SurvivalNormal3.png");
+	plane->UpdateWorld();
+
+	valueBuffer = new FloatValueBuffer();
+	valueBuffer->Get()[1] = SCREEN_WIDTH;
+	valueBuffer->Get()[2] = SCREEN_HEIGHT;
+
+	UIMaker::Get();
 }
 
 SurvivalScene::~SurvivalScene()
@@ -32,13 +32,17 @@ SurvivalScene::~SurvivalScene()
 	
 	delete player;
 	delete plane;
+	delete valueBuffer;
 }
 
 void SurvivalScene::Update()
 {
+	//heartFont->SetValue(player->curHp);
+
 	TreeManager::Get()->Update();
 	EnemyManager::Get()->Update();
 	ItemManager::Get()->Update();
+	UIMaker::Get()->Update();
 	player->Update();
 }
 
@@ -49,24 +53,21 @@ void SurvivalScene::PreRender()
 void SurvivalScene::Render()
 {
 	plane->Render();
-	//skybox->Render();
+
 	TreeManager::Get()->Render();
 	EnemyManager::Get()->Render();
 	ItemManager::Get()->Render();
 	
 	player->Render();
-	
 }
 
 void SurvivalScene::PostRender()
 {
 	player->PostRender();
-	string hp = "   : " + to_string(player->curHp);
-	Font::Get()->RenderText(hp, { 80, SCREEN_HEIGHT - 40 });
-	string money = " : " + to_string(player->ownedMoney);
-	Font::Get()->RenderText(money, { 80, SCREEN_HEIGHT - 70 });
-	//string zombie = " : " + to_string(0);
-	//Font::Get()->RenderText(zombie, { 80, SCREEN_HEIGHT - 100 });
+	//string hp = "   : " + to_string(player->curHp);
+	//Font::Get()->RenderText(hp, { 80, SCREEN_HEIGHT - 40 });
+	//string money = " : " + to_string(player->ownedMoney);
+	//Font::Get()->RenderText(money, { 80, SCREEN_HEIGHT - 70 });
 	UIMaker::Get()->Render();
 }
 

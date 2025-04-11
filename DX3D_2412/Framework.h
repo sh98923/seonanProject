@@ -152,6 +152,7 @@ typedef function<void(int)> IntParamEvent;
 
 #include "Objects/UI/Button.h"
 #include "Objects/UI/ProgressBar.h"
+#include "Objects/UI/ImageFont.h"
 
 #include "Objects/Landscape/Terrain.h"
 #include "Objects/Landscape/Skybox.h"

@@ -229,6 +229,7 @@
     <ClInclude Include="Objects\Survival\TreeManager.h" />
     <ClInclude Include="Objects\Survival\UIMaker.h" />
     <ClInclude Include="Objects\UI\Button.h" />
+    <ClInclude Include="Objects\UI\ImageFont.h" />
     <ClInclude Include="Objects\UI\ProgressBar.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Scenes\CollisionScene.h" />
@@ -335,6 +336,7 @@
     <ClCompile Include="Objects\Survival\TreeManager.cpp" />
     <ClCompile Include="Objects\Survival\UIMaker.cpp" />
     <ClCompile Include="Objects\UI\Button.cpp" />
+    <ClCompile Include="Objects\UI\ImageFont.cpp" />
     <ClCompile Include="Objects\UI\ProgressBar.cpp" />
     <ClCompile Include="Scenes\CollisionScene.cpp" />
     <ClCompile Include="Scenes\CubeMapEditorScene.cpp" />

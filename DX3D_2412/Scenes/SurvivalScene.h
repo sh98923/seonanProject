@@ -19,4 +19,6 @@ private:
 	Tree* tree;
 
 	Plane* plane;
+
+	FloatValueBuffer* valueBuffer;
 };

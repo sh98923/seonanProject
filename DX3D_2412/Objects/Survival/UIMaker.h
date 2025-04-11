@@ -18,8 +18,14 @@ public:
 private:
 	void CreateUI();
 
+	void CreateUIFont();
+
 private:
+	SurvivalPlayer* player;
 	Quad* heartCount;
-	Quad* zombieCount;
 	Quad* creditCount;
+
+	ImageFont* heartFont;
+	ImageFont* creditFont;
+	ImageFont* timerFont;
 };
