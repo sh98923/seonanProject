@@ -15,7 +15,7 @@ private:
 	const float HIT_INTERVAL = 1.0f;
 
 public:
-	int curHp;
+	int curHp = 0;
 	int ownedMoney = 0;
 
 public:

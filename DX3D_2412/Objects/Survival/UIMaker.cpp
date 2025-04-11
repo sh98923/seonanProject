@@ -17,7 +17,12 @@ UIMaker::~UIMaker()
 
 void UIMaker::Update()
 {
+	if (player->curHp == -1)
+	{
+		int d = 2;
+	}
 	heartFont->SetValue(player->curHp);
+	
 	creditFont->SetValue(player->ownedMoney);
 }
 

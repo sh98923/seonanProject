@@ -40,7 +40,10 @@ void EnemyManager::Update()
 	enemyModel->Update();
 
 	for (Enemy* enemy : enemies)
-		enemy->Update();
+	{
+		if(enemy->IsActive())
+			enemy->Update();
+	}
 }
 
 void EnemyManager::Render()
@@ -48,7 +51,10 @@ void EnemyManager::Render()
 	enemyModel->Render();
 
 	for (Enemy* enemy : enemies)
-		enemy->Render();
+	{
+		if (enemy->IsActive())
+			enemy->Render();
+	}
 }
 
 void EnemyManager::Edit()

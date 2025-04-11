@@ -1,14 +1,14 @@
 <Material Name="Default">
     <Shader Vertex="Light/Light.hlsl" Pixel="Light/Light.hlsl"/>
     <Texture>
-        <DiffuseMap Diffuse="Resources/Textures/Colors/White.png"/>
+        <DiffuseMap Diffuse="Resources\Textures\Colors\Red.png"/>
         <SpecularMap Specular="Resources/Textures/Colors/White.png"/>
         <NormalMap Normal="Resources/Textures/Colors/White.png"/>
     </Texture>
     <Property Shininess="256" HasNormalMap="0">
-        <Diffuse R="0.80000001" G="0.012797046" B="0.016230863" A="1"/>
+        <Diffuse R="1" G="1" B="1" A="1"/>
         <Specular R="1" G="1" B="1" A="1"/>
         <Ambient R="0.2" G="0.2" B="0.2" A="1"/>
-        <Emissive R="0.014705896" G="0.014705896" B="0.014705896" A="1"/>
+        <Emissive R="0" G="0" B="0" A="1"/>
     </Property>
 </Material>
