@@ -48,7 +48,6 @@ void Bullet::Edit()
 void Bullet::Fire(Vector3 pos, Vector3 dir)
 {
 	localPosition = pos;
-	//transform->GetLocalPosition() = pos;
 	velocity = dir;
 	lifeTime = 0.0f;
 

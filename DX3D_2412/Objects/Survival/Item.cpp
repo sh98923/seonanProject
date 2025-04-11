@@ -34,7 +34,7 @@ void Item::Update()
 	if (!IsActive()) return;
 
 	ItemFloating();
-	player->ObtainMoney(this);
+	player->ObtainItem(this);
 	PickedUpItemToPlayer();
 	UpdateWorld();
 }

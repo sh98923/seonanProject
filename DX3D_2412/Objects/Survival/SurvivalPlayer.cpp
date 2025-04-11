@@ -44,6 +44,7 @@ void SurvivalPlayer::Update()
 	SetAction();
 	GetInvincible();
 	ObtainMoney(credit);
+	ObtainItem(items);
 
 	weaponSocket->SetWorld(playerModel->GetTransformByNode(31));
 	particle->Update();
@@ -70,8 +71,6 @@ void SurvivalPlayer::PostRender()
 
 void SurvivalPlayer::Control()
 {
-	//if (curState == MOVEFIRE) return;
-	
 	Vector3 dir;
 
 	if (KEY->Press('W'))
@@ -91,7 +90,6 @@ void SurvivalPlayer::Control()
 
 void SurvivalPlayer::Move()
 {
-	//if (curState == MOVEFIRE) return;
 	Translate(velocity * moveSpeed * DELTA);
 }
 
@@ -150,13 +148,10 @@ void SurvivalPlayer::ReadClips()
 	playerModel->CreateTexture();
 
 	playerModel->GetClip(SURVIVALMOVE)->SetEvent(bind(&SurvivalPlayer::Fire, this), 0.1f);
-	//playerModel->GetClip(SURVIVALMOVE)->SetEvent(bind(&SurvivalPlayer::ReturnToIdle, this), 0.3f);
 }
 
 void SurvivalPlayer::SetAction()
 {
-	//if (curState == SURVIVALMOVE) return;
-
 	if (velocity.x != 0 || velocity.z != 0)
 		SetState(SURVIVALMOVE);
 
@@ -191,22 +186,37 @@ void SurvivalPlayer::GetDamagedFromEnemy(Collider* collider)
 	if (collider == nullptr) return;
 	if (isInvincible) return;
 	
-	if (this->IsCollision(collider))
+	if (IsCollision(collider))
 	{
 		isInvincible = true;
 		curHp--;
+		Audio::Get()->Play("PlayerHit", 0.5f);
 		hitTime = 0.0f;
 	}
 }
 
-void SurvivalPlayer::ObtainMoney(Collider* collider)
+void SurvivalPlayer::ObtainMoney(Credit* collider)
 {
 	if (collider == nullptr) return;
 
-	if (this->IsCollision(collider))
+	if (IsCollision(collider))
 	{
 		collider->SetActive(false);
 		ownedMoney++;
+		Audio::Get()->Play("CreditUp", 0.2f);
 	}
 }
+
+void SurvivalPlayer::ObtainItem(Item* collider)
+{
+	if (collider == nullptr) return;
+
+	if (IsCollision(collider))
+	{
+		collider->SetActive(false);
+		curHp++;
+		Audio::Get()->Play("HeartUp", 0.2f);
+	}
+}
+
 

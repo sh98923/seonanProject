@@ -17,12 +17,7 @@ UIMaker::~UIMaker()
 
 void UIMaker::Update()
 {
-	if (player->curHp == -1)
-	{
-		int d = 2;
-	}
 	heartFont->SetValue(player->curHp);
-	
 	creditFont->SetValue(player->ownedMoney);
 }
 
@@ -61,12 +56,12 @@ void UIMaker::CreateUI()
 void UIMaker::CreateUIFont()
 {
 	heartFont = new ImageFont(L"Resources/Textures/UI/Font/");
-	heartFont->SetLocalPosition(80, SCREEN_HEIGHT - 40, 0);
+	heartFont->SetLocalPosition(90, SCREEN_HEIGHT - 40, 0);
 	heartFont->SetAligned(ImageFont::R);
 	heartFont->UpdateWorld();
 
 	creditFont = new ImageFont(L"Resources/Textures/UI/Font/");
-	creditFont->SetLocalPosition(80, SCREEN_HEIGHT - 70, 0);
+	creditFont->SetLocalPosition(90, SCREEN_HEIGHT - 70, 0);
 	creditFont->SetAligned(ImageFont::R);
 	creditFont->UpdateWorld();
 }

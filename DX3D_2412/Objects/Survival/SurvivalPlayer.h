@@ -1,6 +1,7 @@
 #pragma once
 class Enemy;
 class Credit;
+class Item;
 
 class SurvivalPlayer : public CapsuleCollider
 {
@@ -27,7 +28,8 @@ public:
 	void PostRender();
 
 	void GetDamagedFromEnemy(Collider* collider);
-	void ObtainMoney(Collider* collider);
+	void ObtainMoney(Credit* collider);
+	void ObtainItem(Item* collider);
 
 private:
 	void Control();
@@ -54,6 +56,7 @@ private:
 	Transform* weaponSocket;
 	Enemy* enemy;
 	Credit* credit;
+	Item* items;
 	ParticleSystem* particle;
 
 	PlayerState curState = SURVIVALIDLE;
