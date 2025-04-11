@@ -1,4 +1,5 @@
 #pragma once
+class SurvivalPlayer;
 
 class UIMaker : public Singleton<UIMaker>
 {
@@ -15,13 +16,14 @@ public:
 	void Edit();
 	void PostRender();
 
+	void SetPlayer(SurvivalPlayer* player) { this->player = player; }
+
 private:
 	void CreateUI();
-
 	void CreateUIFont();
 
 private:
-	SurvivalPlayer* player;
+	SurvivalPlayer* player = nullptr;
 	Quad* heartCount;
 	Quad* creditCount;
 
