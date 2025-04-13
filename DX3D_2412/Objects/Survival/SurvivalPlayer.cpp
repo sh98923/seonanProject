@@ -103,6 +103,7 @@ void SurvivalPlayer::Fire()
 	{
 		SetState(SURVIVALMOVE);
 		particle->Play(weaponFrontPos + (dir * 2));
+		Audio::Get()->Play("Shot", 0.1f);
 		BulletManager::Get()->Fire(localPosition, GetForward());
 	}
 }

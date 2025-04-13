@@ -21,9 +21,9 @@ SurvivalScene::SurvivalScene()
 	valueBuffer->Get()[1] = SCREEN_WIDTH;
 	valueBuffer->Get()[2] = SCREEN_HEIGHT;
 
-	Audio::Get()->Add("Shot", "Resources/Sounds/shotsound.wav");
+	Audio::Get()->Add("Shot", "Resources/Sounds/rifleshotsound.wav");
 	//Audio::Get()->Add("BGM", "Resources/Sounds/survivalBGM2.wav",true);
-	Audio::Get()->Add("BGM", "Resources/Sounds/survivalBGM.mp3",true);
+	Audio::Get()->Add("BGM", "Resources/Sounds/survivalBGM.mp3", true, true);
 	Audio::Get()->Add("HeartUp", "Resources/Sounds/heartupsound.wav");
 	Audio::Get()->Add("PowerUp", "Resources/Sounds/powerupsound.wav");
 	Audio::Get()->Add("CreditUp", "Resources/Sounds/creditupsound.wav");
@@ -52,6 +52,7 @@ void SurvivalScene::Update()
 	UIMaker::Get()->Update();
 	
 	player->Update();
+	Audio::Get()->Update();
 }
 
 void SurvivalScene::PreRender()
