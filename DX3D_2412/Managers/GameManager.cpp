@@ -40,7 +40,7 @@ GameManager::GameManager()
 	//SCENE->Create("Start", new ParticleEditorScene());
 	
 
-	SCENE->Add("Grid");
+	//SCENE->Add("Grid");
 	SCENE->Add("Start");
 
 	Create();

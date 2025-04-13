@@ -3,7 +3,7 @@
 
 ModelRenderScene::ModelRenderScene()
 {
-	model = new Model("heart");
+	model = new Model("pinetreegroup");
 	//model->SetShader(L"Model/Model.hlsl");
 }
 

@@ -43,7 +43,7 @@ private:
 	float moveSpeed = 3.3f;
 	Vector3 velocity;
 	
-	int maxHp = 3;
+	int maxHp = 5;
 
 	bool isParticlePlay = false;
 };
